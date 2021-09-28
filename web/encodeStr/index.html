@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+</head>
+<body>
+
+<label for="encode">加密字符串:</label>
+<input id="encode" type="text">
+<button onclick="f1()">加密</button>
+<p id="res"></p>
+
+<label for="decode">解密字符串:</label>
+<input id="decode" type="text">
+<button onclick="f2()">解密</button>
+<p id="res2"></p>
+
+
+<script>
+    function f1() {
+        document.getElementById("res").innerText = encodeStr(document.getElementById("encode").value)
+    }
+
+
+    function f2() {
+        document.getElementById("res2").innerText = decodeStr(document.getElementById("decode").value)
+    }
+
+    function encodeStr(str) {
+        if (!str) return;
+
+        var random = function (lower, upper) {
+            return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+        };
+
+        var arr = str.toString().split("").map(function (item) {
+            return item.charCodeAt(0).toString(8)
+        });
+
+        arr.reverse();//反序数组
+        arr = arr.join("_").split("");//暂时使用 _ 分割字符串;
+        var num = 0;
+        while (num < str.length) {
+            var r = String.fromCharCode(random(97, 122));//生成用于混淆的  的 小写字母
+            arr.splice(random(0, arr.length), 0, r);
+            num++;
+        }
+        return arr.join("").replace(/_/ig, function (str) {
+            return String.fromCharCode(random(65, 90));
+        });//将分割符 _ 替换为随机的 大写字母
+
+    }
+
+
+    function decodeStr(str) {
+        if (!str) return;
+        var temp = [];
+        str.split("").forEach(function (item) {
+            var code = item.charCodeAt(0);
+            if (code <= 90 && code >= 65) {
+                item = "_";//将作为分割用的 随机大写字母 统一为 _  以便切割
+                temp.push(item);
+            } else if (code <= 57 && code >= 48) {
+                temp.push(item);//提取 数字
+            }
+        });
+        temp = temp.join("").split("_");
+        temp.reverse();
+        var res = temp.map(function (item) {
+            return String.fromCharCode(parseInt(item, 8));
+        });
+
+        return res.join("");
+
+    }
+</script>
+</body>
+</html>

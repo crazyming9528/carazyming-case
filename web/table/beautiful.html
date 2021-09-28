@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table, tr, th, td {
+            border: 1px solid #d6d6d6;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            color: #555;
+            font-size: 14px;
+            table-layout: fixed;
+        }
+
+        th, td {
+            padding: 6px 12px;
+        }
+
+        tr:nth-child(2n+1) {
+            background: aliceblue;
+        }
+
+        tr {
+            transition: background-color 1s;
+        }
+
+        tr:hover {
+            background: lightpink;
+        }
+    </style>
+</head>
+<body>
+
+<table>
+    <colgroup>
+        <col span="3"></col>
+        <col style="width:260px;"></col>
+    </colgroup>
+    <tr>
+        <th>表头1</th>
+        <th>表头2</th>
+        <th>表头3</th>
+        <th>表头4</th>
+    </tr>
+    <tr>
+        <td>Lv3</td>
+        <td>1000</td>
+        <td></td>
+        <td>开发中</td>
+    </tr>
+    <tr>
+        <td>Lv4</td>
+        <td>5000</td>
+        <td><img style="vertical-align: text-bottom; height: 16px;"
+                 data-width="39"
+                 src="https://www.baidu.com/img/bd_logo1.png">
+            百度
+        </td>
+        <td>测试</td>
+    </tr>
+    <tr>
+        <td>Lv5</td>
+        <td>10000</td>
+        <td></td>
+        <td>文档</td>
+    </tr>
+    <tr>
+        <td>Lv6</td>
+        <td>20000</td>
+        <td><img style="vertical-align: text-bottom; height: 16px;"
+                 data-width="39"
+                 src="https://www.baidu.com/img/bd_logo1.png">
+            123
+        </td>
+        <td>456</td>
+    </tr>
+</table>
+
+</body>
+</html>

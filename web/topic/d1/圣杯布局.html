@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #header{
+            height:50px;
+            background: #666;
+            text-align: center;
+        }
+        #mainbody{
+            /*设置左右两个div宽度以及container容器的左右内边距分别为left、right盒子的宽度，以便给这两个盒子腾地儿,摆正中间栏的位置*/
+            padding:0 200px 0 180px;
+            height:100px;
+        }
+        #middle{
+            float:left;
+            width:100%;/*左栏上去到第一行*/
+            height:100px;
+            background:blue;
+        }
+        #left{
+            float:left;
+            width:180px;
+            height:100px;
+            margin-left:-100%;
+            background:#0c9;
+            /*!*中间栏的位置摆正之后，左栏的位置也相应右移，通过相对定位的left恢复到正确位置*!*/
+            position:relative;
+            left:-180px;
+        }
+        #right{
+            float:left;
+            width:200px;
+            height:100px;
+            margin-left:-200px;
+            background:#0c9;
+            /*中间栏的位置摆正之后，右栏的位置也相应左移，通过相对定位的right恢复到正确位置*/
+            position:relative;
+            right:-200px;
+        }
+
+        #footer{
+            height:50px;
+            background: #666;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<div id="header">header11</div>
+<div id="mainbody">
+    <div id="middle">middle</div>
+    <div id="left">left</div>
+    <div id="right">right</div>
+</div>
+<div id="footer">footer</div>
+
+</body>
+</html>

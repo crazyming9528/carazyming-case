@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSMpeg</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0">
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+        }
+
+        .tips {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: #ff9866;
+            opacity: 0.8;
+            border: 1px solid #000;
+            color: white;
+            box-sizing: border-box;
+            padding: 15px;
+        }
+
+        .video-wrap {
+            width: 100%;
+            display: none;
+        }
+
+        .btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: none;
+            background-color: white;
+            height: 40px;
+            border-radius: 5px;
+            opacity: 0.8;
+            cursor: pointer;
+        }
+        #github{
+            display: none;
+            
+        }
+    </style>
+</head>
+<body>
+<button class="btn" id="btn_init">视频加载中 请稍后</button>
+<a class="" id="github" href="https://github.com/phoboslab/jsmpeg">
+    <button class="btn">点击前往 JSMpeg github</button>
+</a>
+<div class="tips">jsmpeg通过canvas播放视频,解决了video标签在安卓浏览器上层级最高的问题,同时实现了视频的自动播放</div>
+<canvas class="video-wrap" id="video"></canvas>
+<script src="js/jsmpeg.js"></script>
+<script>
+    var canvas = document.getElementById('video');
+    var github = document.getElementById('github');
+    var btn_init = document.getElementById("btn_init");
+
+    jsmpegPlay(canvas, 'out.ts', startCallBack, playingCallBack, endCallBack);
+
+    function jsmpegPlay(Vcanvas, vVideo, startFun, playingFun, endFun) {
+        var player = new JSMpeg.Player(
+            vVideo, {
+                canvas: Vcanvas,
+                loop: true,
+                autoplay: true,
+                startSign: true,
+                startCallBack: startFun,
+                playingCallBack: playingFun,
+                endCallBack: endFun
+            });
+    }
+
+    //视频开始播放（
+    function startCallBack() {
+        canvas.style.display = "block"
+        btn_init.style.display ="none";
+        github.style.display = "block";
+    }
+
+    //视频播放进度
+    function playingCallBack(currentTime) {
+        console.log(currentTime)
+    }
+
+    //视频播放完成
+    function endCallBack() {
+        
+    }
+</script>
+</body>
+</html>

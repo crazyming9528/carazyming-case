@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>使用replace实现字符的大小写转换</h1>
+<p>caseConvert("AbcD");</p>
+<script>
+
+    function caseConvert(str) {
+        return str.replace(/([a-z]*)([A-Z]*)/g, function (str, sub1, sub2) {
+            console.log(arguments);
+            return sub1.toLocaleUpperCase() + sub2.toLocaleLowerCase();
+        })
+    }
+
+    console.log(caseConvert("AbcD"));
+</script>
+</body>
+</html>

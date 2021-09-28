@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+</head>
+
+<style>
+    .title{
+        background-color: #dedede;
+        padding: 15px;
+    }
+    .wrap {
+        background-color: #ecd68f;
+        margin-bottom: 15px;
+
+    }
+
+    .box {
+        margin-top: 50px;
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+        background-color: #d1d1d1;
+        border: 5px solid gray;
+    }
+</style>
+<body>
+
+<h1>关于BFC的一些案例</h1>
+
+
+<p class="title">没有触发bfc时 子元素的margin-top影响到了父元素:</p>
+<div class="wrap">
+    <div class="box">盒子</div>
+    <div class="box">盒子</div>
+    <div class="box">盒子</div>
+
+</div>
+
+
+<p class="title">下方容器加了display: flow-root,触发bfc:</p>
+<div class="wrap" style="display: flow-root">
+    <div class="box">盒子</div>
+    <div class="box">盒子</div>
+    <div class="box">盒子</div>
+
+</div>
+
+
+<p class="title">
+   下方容器加了display: flow-root, BFC并不能 解决margin重叠的问题,网上的说法是错误的:
+</p>
+<div class="wrap" style="display: flow-root" >
+
+    <div style="width:200px;height:200px; background-color: #94e337;margin-bottom: 10px">
+    </div>
+    <div style="width:200px;height:200px; background-color: #e34f5e;margin-top: 10px">
+    </div>
+
+</div>
+<p class="title">
+    之所以很多文章说BFC可以解决margin重叠的问题，是因为浮动元素、inline-block 元素、绝对定位元素都在触发了BFC的同时解决了重叠问题。并不是BFC特性解决了margin重叠的问题。在下方的第一个块中定义了display: inline-block:
+
+</p>
+<div class="wrap"  >
+
+    <div style="width:200px;height:200px; background-color: #94e337;margin-bottom: 10px ;display: inline-block">
+    </div>
+    <div style="width:200px;height:200px; background-color: #e34f5e;margin-top: 10px">
+    </div>
+
+</div>
+<p class="title">
+   浮动导致的高度塌陷:
+</p>
+<div class="wrap" style=""  >
+
+   <div style="float: left; width: 50px;height: 50px;background-color: #4d73bd"></div>
+    <div style="float: left; width: 50px;height: 50px;background-color: #84ff39"></div>
+    <div style="float: left; width: 50px;height: 50px;background-color: #fe7a61"></div>
+
+</div>
+<p class="title">
+   这是个文本
+</p>
+
+<div style="clear: both"></div>
+<p class="title">
+    父级加了display: flow-root 解决浮动导致的高度塌陷:
+</p>
+<div class="wrap" style="display: flow-root"  >
+
+    <div style="float: left; width: 50px;height: 50px;background-color: #4d73bd"></div>
+    <div style="float: left; width: 50px;height: 50px;background-color: #84ff39"></div>
+    <div style="float: left; width: 50px;height: 50px;background-color: #fe7a61"></div>
+
+</div>
+
+<p class="title">
+    这是个文本
+</p>
+
+
+</body>
+</html>

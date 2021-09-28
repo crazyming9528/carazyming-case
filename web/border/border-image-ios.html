@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>border-image在ios下的兼容性问题</title>
+</head>
+<style>
+
+    .box {
+        height: 200px;
+        width: 200px;
+        margin-bottom: 30px;
+        background-color: #f1f1f1;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .box1 {
+        border: none;
+        border-left: 1px solid #155799;
+        border-image: linear-gradient(#155799, #159957) 30 30;
+    }
+
+
+    .box2 {
+        border-top: solid 0 transparent;
+        border-bottom: solid 0 transparent;
+        border-right: solid 0 transparent;
+        border-left: 1px solid #155799;
+        border-image: linear-gradient(#155799, #159957) 30 30;
+    }
+
+
+</style>
+<body>
+
+<div class="box box1">
+    box1
+</div>
+
+<div class="box box2">
+    box2
+</div>
+
+</body>
+</html>

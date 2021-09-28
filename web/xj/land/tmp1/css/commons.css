@@ -1,0 +1,157 @@
+@charset "UTF-8";
+*{
+    margin: 0;padding: 0
+}
+html,body{
+    /*position: absolute;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    width: 100%;
+    height: 100%;
+    /*min-height: 100%;*/
+    /*overflow: hidden;*/
+}
+/*按钮*/
+.btn{
+    display: inline-block;
+    border: none;
+    color: #ffffff;
+    text-align: center;
+    white-space: nowrap;/*规定段落中的文本不进行换行*/
+    vertical-align: middle;
+    touch-action: manipulation;/*禁止触发默认的手势操作*/
+    -webkit-user-select: none;/*控制页面文字不能被选中*/
+    user-select: none;
+    background-image: none;
+    background-color: transparent;
+    -webkit-text-size-adjust: none;/*闭字体大小自动调整功能.*/
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    outline: none;
+}
+.btn:active{
+    -webkit-transform: translateY(2px);
+}
+/*输入框*/
+input,select,textarea{
+    border: none;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    box-shadow: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+    outline: none;
+}
+/*图片*/
+img{
+    pointer-events: none; /*禁止图片点击事件*/
+}
+/*提示*/
+.alert{
+    position: absolute;
+    bottom: 15%;
+    left: 50%;
+    -webkit-transform: translateX(-50%); /*垂直居中*/
+    background: rgba(0,0,0,.4);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=#66000000, endColorstr=#66000000);/*ie使用方法*/
+    z-index: 99999;
+    font-size: 0.78125rem;
+    color: #ffffff;
+    text-align: center;
+    padding: 0.5208333333rem 1.0416666667rem;
+    box-sizing: border-box;
+    border-radius: 0.2083333333rem !important;
+}
+/*提示动画效果*/
+.alert.drop-in {
+    -webkit-animation: dropIn 1s;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.alert.drop-out {
+    -webkit-animation: dropOut 1s;
+    -webkit-animation-fill-mode: forwards;
+}
+@-webkit-keyframes dropIn {
+    from {
+        -webkit-transform: translate(-50%, 0);
+        opacity: 0;
+    }
+    to {
+        -webkit-transform: translate(-50%, 0.5208333333rem);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes dropOut {
+    from {
+        -webkit-transform: translate(-50%, 0.5208333333rem);
+        opacity: 1;
+    }
+    to {
+        -webkit-transform: translate(-50%, 0);
+        opacity: 0;
+    }
+}
+/*弹窗*/
+.dialog{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 990;
+    display: none;
+    overflow: hidden;
+}
+.dialog .dialog-mask{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.8);
+    overflow: hidden;
+}
+.dialog .dialog-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    box-sizing: border-box;
+    overflow: hidden;
+}
+/*背景*/
+.bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    z-index: 1;
+}
+/*清除浮动*/
+.clearfix:after{/*//伪对象选择符 （在这个对象被浏览器渲染后添加一定的内容）*/
+    content:".";/*//添加内容写在这里的属性值 这个属性是专门配合伪类对象,必须写;*/
+    display:block;/*//将添加的内容转换为块级元素*/
+    visibility:hidden;/*//可视化属性；控制元素是否可见;无论是否可见，保留物理空间；和display属性不同;*/
+    height:0;/*//将添加进去的内容的高度设置为0；消除其占位；*/
+    clear:both;/*//将添加去的内容作为清除浮动的对象，实现外围对象中由内容存在，因此可以自动判断高度;*/
+}
+/*开启GPU加速*/
+.GPU{
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+}

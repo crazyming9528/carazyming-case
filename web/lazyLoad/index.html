@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>图片懒加载-原生js版本</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    img {
+        width: 30%;
+    }
+
+    .wrap {
+        text-align: center;
+    }
+
+    .button_group{
+        position: fixed;
+        height: 80px;
+        line-height: 80px;
+        bottom: 120px;
+        right: 0;
+
+    }
+    .button_group a{
+        background-color: #1daee9;
+        text-decoration: none;
+        padding: 15px;
+        color: white;
+    }
+    a.current{
+        background-color: orangered;
+    }
+</style>
+<body>
+
+<div class="button_group">
+
+    <a href="index.html" class="current">原生JS版本 监听滚动</a>
+    <a href="index2.html">JQuery版本 监听滚动</a>
+    <a href="index3.html">IntersectionObserver版本</a>
+
+</div>
+<!--img[src="img/loading.gif" data-src="img/$.jpg"]*20-->
+<div class="wrap">
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+    <img src="img/loading.gif" alt="" data-src="img/1.jpg"><img src="img/loading.gif" alt="" data-src="img/2.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/3.jpg"><img src="img/loading.gif" alt="" data-src="img/4.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/5.jpg"><img src="img/loading.gif" alt="" data-src="img/6.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/7.jpg"><img src="img/loading.gif" alt="" data-src="img/8.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/9.jpg"><img src="img/loading.gif" alt="" data-src="img/10.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/11.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/12.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/13.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/14.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/15.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/16.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/17.jpg"><img src="img/loading.gif" alt=""
+                                                                data-src="img/18.jpg"><img src="img/loading.gif"
+                                                                                           alt=""
+                                                                                           data-src="img/19.jpg"><img
+        src="img/loading.gif" alt="" data-src="img/20.jpg">
+
+
+</div>
+
+
+
+<script>
+
+    /**
+     * 滚动执行
+     */
+    function handleScroll() {
+        var imgArr = document.querySelectorAll("img[data-src]");
+        var clientHeight = document.documentElement.clientHeight;
+        [].forEach.call(imgArr, function (item, index) {
+            if (item.getBoundingClientRect().top < clientHeight) {
+                item.src = item.getAttribute("data-src");
+            }
+        })
+    }
+
+
+    /**
+     * 节流
+     * @param time
+     * @param action
+     * @returns {Function}
+     */
+    function throttle(time, action) {
+        var timer = null;
+        return function () {
+            var context = this;
+            var args = arguments;
+            if (!timer) {
+                timer = setTimeout(function () {
+                    action.apply(context, args);
+                    timer = null;
+                }, time);
+            }
+        }
+    }
+
+    handleScroll();
+    window.addEventListener("scroll", throttle(1000, handleScroll))
+
+
+</script>
+</body>
+</html>

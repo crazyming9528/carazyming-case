@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+
+    <style>
+
+        .rect1{
+            width: 200px;
+            height: 200px;
+            border-top: 50px solid yellow;
+            border-left: 50px solid orangered;
+            border-right: 50px solid goldenrod;
+            border-bottom: 50px solid red;
+        }
+
+        .rect{
+            width: 0;
+            height: 0;
+            border-top: 50px solid yellow;
+            border-left: 50px solid orangered;
+            border-right: 50px solid goldenrod;
+            border-bottom: 50px solid red;
+        }
+        .triangle{
+            width: 0;
+            height: 0;
+            border-top: 50px solid transparent;
+            border-left: 50px solid transparent;
+            border-right: 50px solid transparent;
+            border-bottom: 50px solid red;
+        }
+    </style>
+</head>
+<body>
+<h1>用css创建一个三角形</h1>
+
+可以理解为就像木匠做相框，连接处都会锯成45度角.下图是带宽高的一个矩形
+<div class="rect1">
+</div>
+<p>将矩形的宽高设置为0，实现效果如下，可以看到border的四个边都是一个三角形，要实现三角形只需将其中几个边background设置为transparent，即可得到三角形</p>
+<div class="rect">
+
+</div>
+<div class="triangle">
+
+</div>
+
+<script>
+
+</script>
+</body>
+</html>

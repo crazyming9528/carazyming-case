@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <title>红包捕鱼</title>
+    <link rel="stylesheet" href="css/video.css">
+    <!--<link href="https://cdn.bootcss.com/video.js/7.4.3/alt/video-js-cdn.min.css" rel="stylesheet">-->
+    <link rel="stylesheet" href="css/commons.css">
+    <link rel="stylesheet" href="css/sass/index.css">
+    <link rel="stylesheet" href="css/layer.css">
+<!--    <script>-->
+<!--        var _hmt = _hmt || [];-->
+<!--        (function() {-->
+<!--            var hm = document.createElement("script");-->
+<!--            hm.src = "https://hm.baidu.com/hm.js?04761c17f83d291771c79dfa065a3d83";-->
+<!--            var s = document.getElementsByTagName("script")[0];-->
+<!--            s.parentNode.insertBefore(hm, s);-->
+<!--        })();-->
+<!--    </script>-->
+</head>
+<body>
+<!--loading-->
+<div class="loading">
+    <img src="img/loading.gif" alt="">
+</div>
+    <!--模块一-->
+    <div class="module-top">
+        <img src="" alt="" id="head_backimg">
+    </div>
+    <!--浏览器播放框架-->
+    <div class="videoMoule clearfix" style="display: none">
+        <div class="flotation">
+            <div class="di" style="width: 100%">
+            <video
+                    id="my-video"
+                    class="video-js vjs-big-play-centered vjs-default-skin"
+                    preload="auto"
+                    data-setup='{"aspectRatio":"16:9","fluid":"true"}'
+                    x5-playsinline=""
+                    playsinline=""
+                    x-webkit-airplay="allow"
+                    style="object-fit:fill"
+                    autoplay="true"
+                    x5-video-player-type="h5"
+                    x5-video-orientation="portraint"
+                    x5-video-player-fullscreen="true"
+
+            >
+                <!--<source id="source" src="http://wap.chekchekoyuni.com:9103/videos/hbby2/hbby_new15s/hbby_new15s.m3u8"  type="application/x-mpegURL">-->
+            </video>
+                <!--暂停按钮-->
+                <div class="xd-pa" id="xd-pa">
+                    <button class="btn"></button>
+                </div>
+            <!--静音按钮-->
+            <div class="mute">
+            <img src="./img/moban1_voice_ico.png" alt="">
+            </div>
+            </div>
+        </div>
+        <!--icon模块-->
+        <div class="module-icon">
+            <div class="module-icon-left">
+                <!--下载状态-->
+                <div class="module-icon-left-dowm" >
+                    <div style="display: none" id="jd" >
+                        <!--<p class="mess"><span id="jindu"></span><span>چۈشۈۋاتىدۇ</span></p>-->
+
+                        <!--<div class="action">-->
+                            <!--<img src="./img/jingdu.gif" alt="">-->
+                        <!--</div>-->
+                        <div class="sv-box">
+                            <svg width="100%" height="100%">
+                                <circle cx="50%" cy="50%" r="45%" fill="none" stroke="#575757" stroke-width="2.85" stroke-linecap="round" style="opacity: 0.5"/>
+                                <circle class="circle-progress-bar" cx="50%" cy="50%" r="45%" fill="none" stroke="white" stroke-width="2.85" stroke-linecap="round" />
+                            </svg>
+                        </div>
+                        <p class="mess"><span id="jindu"></span><span id="m">چۈشۈۋاتىدۇ</span></p>
+                    </div>
+                    <button class="btn btn-mid" id="btn-mid">
+                        <img src="" alt="">
+                    </button>
+                </div>
+                <div class="module-icon-left-name">
+                    <div class="name" id="name1">红包捕鱼</div>
+                    <div class="mess-product" id="size1">
+                    </div>
+                </div>
+            </div>
+            <div class="module-icon-right" >
+                <img src="" alt="" id="module-icon-right">
+            </div>
+        </div>
+    </div>
+    <!--模块4-->
+    <div class="module-bottom">
+        <img src="" alt="" id="custom_backimg">
+    </div>
+    <!--底部下载区域-->
+
+    <div class="module-footer" >
+        <div class="module-footer-left">
+                <div style="display: none" id="jd2">
+                    <!--<p>چۈشۈرۈۋاتىدۇ<span id="jindu1"></span>%</p>-->
+                    <!--<p><span id="jindu1"></span><span>چۈشۈۋاتىدۇ</span></p>-->
+
+                    <!--<div class="action">-->
+                        <!--<img src="./img/jingdu.gif" alt="">-->
+                    <!--</div>-->
+                    <div class="sv-box">
+                        <svg width="100%" height="100%">
+                            <circle cx="50%" cy="50%" r="45%" fill="none" stroke="#575757" stroke-width="2.85" stroke-linecap="round" style="opacity: 0.5"/>
+                            <circle class="circle-progress-bar" cx="50%" cy="50%" r="45%" fill="none" stroke="white" stroke-width="2.85" stroke-linecap="round" stroke-dasharray="20,10000"/>
+                        </svg>
+                    </div>
+                    <p class="mess"><span id="jindu1"></span><span id="m2">چۈشۈۋاتىدۇ</span></p>
+                </div>
+            <button class="btn btn-down" id="btn-down">
+                <img src="" alt="">
+            </button>
+
+        </div>
+        <div class="module-footer-right">
+            <div class="xd-left">
+                <div class="name" id="name">红包捕鱼</div>
+                <div class="mess-product">
+                    <span><span id="size"></span></span>
+                </div>
+            </div>
+            <div class="xd-right">
+                    <img src="" alt="" id="xd-right">
+            </div>
+
+        </div>
+    </div>
+<!--    检测弹框-->
+
+    <script src="js/rem.js"></script>
+    <script src="js/letvariable.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/javascriptBrige.js"></script>
+    <script src="js/axios.js"></script>
+    <script src="js/video.js"></script>
+    <script src="js/jquer.js"></script>
+    <script src="js/layer.js"></script>
+    <script src="js/indexnew.js"></script>
+
+<script>
+    document.onreadystatechange=function () {
+        if(document.readyState=="complete"){
+            setTimeout(function () {
+                document.querySelector('.loading').style.display='none';
+                document.querySelector('.videoMoule').style.display='block';
+            },1000)
+
+        }
+    }
+</script>
+</body>
+</html>

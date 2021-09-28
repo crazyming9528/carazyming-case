@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "微软雅黑";
+        }
+
+        body {
+            background-color: #272727;
+        }
+    </style>
+    <link rel="stylesheet" href="tab.css">
+</head>
+
+<body>
+
+<div class="demo">
+    <h1>jquery版 Tab 轮播图组件</h1>
+    <div class="tab-wrapper tab-wrapper1">
+        <ul class="tab-nav">
+            <li><a href="javascript:void(0)">互联网</a></li>
+            <li><a href="javascript:void(0)">数码</a></li>
+            <li><a href="javascript:void(0)">探索</a></li>
+            <li><a href="javascript:void(0)">科技</a></li>
+        </ul>
+        <div class="content-wrapper">
+            <div class="content-item "><img src="holder.js/500x200?text=互联网" alt=""></div>
+            <div class="content-item"><img src="holder.js/500x200?text=数码" alt=""></div>
+            <div class="content-item"><img src="holder.js/500x200?text=探索" alt=""></div>
+            <div class="content-item"><img src="holder.js/500x200?text=科技" alt=""></div>
+
+        </div>
+    </div>
+    <p>触发切换事件:click 切换效果 fade  自动播放间隔2s</p>
+    <div class="tab-wrapper tab-wrapper2">
+        <ul class="tab-nav">
+            <li><a href="javascript:void(0)">互联网</a></li>
+            <li><a href="javascript:void(0)">数码</a></li>
+            <li><a href="javascript:void(0)">探索</a></li>
+            <li><a href="javascript:void(0)">科技</a></li>
+        </ul>
+        <div class="content-wrapper">
+            <div class="content-item "><img src="holder.js/500x200?text=互联网" alt=""></div>
+            <div class="content-item"><img src="holder.js/500x200?text=数码" alt=""></div>
+            <div class="content-item"><img src="holder.js/500x200?text=探索" alt=""></div>
+            <div class="content-item"><img src="holder.js/500x200?text=科技" alt=""></div>
+
+        </div>
+    </div>
+    <p>触发切换事件:click 切换效果 slide  自动播放间隔2s</p>
+
+    <div class="tab-wrapper tab-wrapper3">
+        <ul class="tab-nav">
+            <li><a href="javascript:void(0)">互联网</a></li>
+            <li><a href="javascript:void(0)">数码</a></li>
+            <li><a href="javascript:void(0)">探索</a></li>
+            <li><a href="javascript:void(0)">科技</a></li>
+        </ul>
+        <div class="content-wrapper">
+            <div class="content-item "><img src="holder.js/500x200?text=互联网" alt=""></div>
+            <div class="content-item"><img src="holder.js/500x200?text=数码" alt=""></div>
+            <div class="content-item"><img src="holder.js/500x200?text=探索" alt=""></div>
+            <div class="content-item"><img src="holder.js/500x200?text=科技" alt=""></div>
+
+        </div>
+    </div>
+    <p>触发切换事件:mouseover 切换效果 fade 默认展示第三个 不自动播放</p>
+</div>
+<script src="jquery.min.js"></script>
+<script src="holder.min.js"></script>
+<script src="tab.js"></script>
+<script>
+    $(function () {
+    new Tab({
+            triggerType: "click",// 触发切换的事件类型
+            effect: 'fade', //切换动画:slide fade
+            invoke: 1,// 默认展示第几个
+            auto: 2000,//自动播放时间 单位秒  false 关闭自动播放
+            container: '.tab-wrapper1',// tab容器 class
+        });
+        new Tab({
+            triggerType: "click",
+            effect: 'slide',
+            invoke: 1,
+            auto: 2000,
+            container: '.tab-wrapper2',
+        });
+        new Tab({
+            triggerType: "mouseover",
+            effect: 'fade',
+            invoke: 3,
+            auto: false,
+            container: '.tab-wrapper3',
+        });
+    });
+</script>
+
+</body>
+
+</html>

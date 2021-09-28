@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>防抖</h1>
+<p>以背景颜色或者 控制台 演示效果</p>
+<input id="input" type="text" placeholder="输入文字 1s防抖">
+<button id="btn">第一次点击按钮立即执行 接下来 2s防抖</button>
+
+<script>
+
+    var input = document.getElementById('input');
+    var btn = document.getElementById('btn');
+    input.addEventListener('input', debounce(sayHi, 1000));
+    btn.addEventListener('click', debounce(sayHi, 2000, true));
+
+    function debounce(fn, wait, immediate) {
+        immediate = immediate || false;
+        var timer = null;
+        var count = 0;
+        return function () {
+            var _this = this;
+            var _arg = arguments;
+            clearTimeout(timer);
+            if (immediate && !count) {
+                fn.apply(_this, _arg);
+                count++;
+            } else {
+                timer = setTimeout(function () {
+                    console.log(this);
+                    fn.apply(_this, _arg);
+                    count++;
+                }, wait);
+            }
+
+
+        }
+
+    }
+
+    function sayHi(e) {
+        console.log('防抖成功', e);
+        this.style.backgroundColor = getRandomColor()
+    }
+
+
+    //生成随机
+    function getRandom(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    // 返回我们要的颜色
+    function getRandomColor() {
+        var c1 = getRandom(0, 255);
+        var c2 = getRandom(0, 255);
+        var c3 = getRandom(0, 255);
+        return 'rgb(' + c1 + ',' + c2 + ',' + c3 + ')'
+    }
+</script>
+
+</body>
+</html>

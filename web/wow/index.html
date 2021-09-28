@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>WOW.jss+Animate.css HTML5演示及使用方法</title>
+<meta name="keywords" content="WOW,Animate,html5,网站设计,高端网站设计,企业网站设计,手机网站设计,网站设计公司,网站界面设计">
+<meta name="description" content="页面向下滚动时,有些元素会产生细小的动画效果.虽然动画比较小,但却能吸引你的注意.如果你希望你的页面也更加有趣,那么你可以试试WOW.js它依赖于animate.css">
+
+<link rel="stylesheet" href="animate.css">
+<style>
+* { margin: 0; padding: 0;}
+body { overflow-x: hidden; font-family: "Microsoft Yahei";}
+body .txt { margin: 80px 0; font-size: 16px; text-align: center;}
+.dowebok { margin: 0 auto;}
+.dowebok ul { list-style-type: none;}
+.dowebok .row { font-size: 0; text-align: center;}
+
+.dowebok .wow {
+ display: inline-block;
+ width: 280px;
+ height: 280px;
+ margin: 30px 15px 0;
+ border-radius: 50%;
+ color:#fff;
+ font: 30px/280px "Microsoft Yahei";
+ vertical-align: top;
+ *display: inline;
+ zoom: 1;
+ line-height:100%;
+}
+.dowebok .wow p{margin:100px 0 0;}
+.dowebok .wow span{font-size:14px;}
+
+.bg-green { background: #5bd5a0;}
+.bg-blue { background: #1daee9;}
+.bg-purple { background: #c843a5;}
+.bg-red { background: #eb3980;}
+.bg-yellow { background: #ffcc35;}
+
+.anima {background: #5fbf5f;width: 280px; height: 280px; margin: 0 auto;color:#fff; border-radius: 50%; font: 30px/280px "Microsoft Yahei";text-align:center; }
+.anima p{padding:100px 0 0;line-height:70%;}
+.anima span{display:inline-block;margin:30px 0 0;font-size:14px;}
+
+.info{padding:50px;}
+.info p{margin:0 0 20px;}
+</style>
+<style type="text/css" abt="234"></style><script>//remove baidu search ad
+var _countAA = 0
+function doBBBd(){
+    var alla = document.getElementsByTagName('a')
+    for(var i = 0; i < alla.length; i++){
+        if(/baidu.com\/(baidu.php\?url=|adrc.php\?t)/.test(alla[i].href)){
+            var _temp = alla[i].parentElement, loop = 0
+            while(loop < 5){
+                _temp = _temp.parentElement
+                loop++
+                if(_temp.parentElement.id == 'content_left'){
+                    _temp.remove()
+                    break
+                }
+            }
+        }
+    }
+
+    if(_countAA++ < 20){
+        setTimeout(doBBBd, 500)
+    }
+
+}
+doBBBd()
+document.addEventListener('keyup', function(){_countAA-=10;doBBBd()}, false)
+document.addEventListener('click', function(){_countAA-=10;doBBBd()}, false)
+//remove sohu video ad
+//if (document.URL.indexOf("tv.sohu.com") >= 0){
+//    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+//}
+//remove 56.com video ad
+//if (document.URL.indexOf("56.com") >= 0){
+//    if (document.cookie.indexOf("fee_status=true")==-1){document.cookie='fee_status=true'};
+//}
+</script></head>
+
+<body>
+<div class="dowebok">
+	<div style="background:#444 url(http://www.topve.com/images/banner/bg1.jpg) no-repeat scroll center center / cover;padding:300px 0 0;height:700px;">
+		<!--animated测试开始-->
+		<div class="anima animated fadeInUp">
+			<p>
+				WOW.js实例<span>
+				第一屏是animated用法测试的演示<br>下面的是WOW效果及命名</span>
+			</p>
+		</div>
+		<!--animated测试结束-->
+	</div>
+
+	<div class="row">
+		<div class="wow bounce bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounce<br><span>距离底部280px时开始动画</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow flash bg-green" data-wow-delay="3s" data-wow-offset="280" style="visibility: hidden; animation-delay: 3s; animation-name: none;"><p>flash<br><span>延迟3秒开始动画</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow pulse bg-blue" data-wow-iteration="3" data-wow-offset="280" style="visibility: hidden; animation-iteration-count: 3; animation-name: none;"><p>pulse<br><span>动画执行3次</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rubberBand bg-purple" data-wow-duration="5s" data-wow-offset="280" style="visibility: hidden; animation-duration: 5s; animation-name: none;"><p>rubberBand<br><span>动画过程时间为5秒</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow shake bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>shake<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow swing bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>swing<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow tada bg-green" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>tada<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow wobble bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>wobble<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow bounceIn bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceIn<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow bounceInDown bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceInDown<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow bounceInLeft bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceInLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow bounceInRight bg-green" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceInRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow bounceInUp bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceInUp<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow bounceOut bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceOut<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow bounceOutDown bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceOutDown<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow bounceOutLeft bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceOutLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow bounceOutRight bg-green" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceOutRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow bounceOutUp bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>bounceOutUp<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeIn bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeIn<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeInDown bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeInDown<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow fadeInDownBig bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeInDownBig<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeInLeft bg-green" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeInLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeInLeftBig bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeInLeftBig<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeInRight bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeInRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeInRightBig bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeInRightBig<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow fadeInUp bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeInUp<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeInUpBig bg-green" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeInUpBig<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeOut bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeOut<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeOutDown bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeOutDown<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeOutDownBig bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeOutDownBig<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow fadeOutLeft bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeOutLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeOutLeftBig bg-green" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeOutLeftBig<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeOutRight bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeOutRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeOutRightBig bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeOutRightBig<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow fadeOutUp bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeOutUp<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow fadeOutUpBig bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>fadeOutUpBig<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow flip bg-green" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>flip<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow flipInX bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>flipInX<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow flipInY bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>flipInY<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow flipOutX bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>flipOutX<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow flipOutY bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>flipOutY<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow flip lightSpeedIn" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>lightSpeedIn<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow lightSpeedOut bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>lightSpeedOut<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rotateIn bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateIn<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rotateInDownLeft bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateInDownLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow rotateInDownRight bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateInDownRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rotateInUpLeft lightSpeedIn" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateInUpLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rotateInUpRight bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateInUpRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rotateOut bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateOut<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rotateOutDownLeft bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateOutDownLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow rotateInDownRight bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateInDownRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rotateOutDownRight lightSpeedIn" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateOutDownRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rotateOutUpLeft bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateOutUpLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rotateOutUpRight bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rotateOutUpRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow hinge bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>hinge<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow rollIn bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rollIn<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow rollOut lightSpeedIn" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>rollOut<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow zoomIn bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomIn<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow zoomInDown bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomInDown<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow zoomInLeft bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomInLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow zoomInRight bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomInRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow zoomInUp lightSpeedIn" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomInUp<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow zoomOut bg-blue" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomOut<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow zoomOutDown bg-purple" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomOutDown<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow zoomOutLeft bg-yellow" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomOutLeft<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+	<div class="row">
+		<div class="wow zoomOutRight bg-red" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomOutRight<br><span>animated动效WOW演示</span></p></div>
+	</div>
+	<div class="row">
+		<div class="wow zoomOutUp lightSpeedIn" data-wow-offset="280" style="visibility: hidden; animation-name: none;"><p>zoomOutUp<br><span>animated动效WOW演示</span></p></div>
+	</div>
+
+
+
+
+
+
+
+	<div style="background:#ccc;margin:50px 0 0;height:300px;"></div>
+
+</div>
+
+<script src="./WOW.jss+Animate.css HTML5演示及使用方法-高端网站设计-唯艺互动_files/push.js.下载"></script><script src="./wow.min.js"></script>
+<script>
+if (!(/msie [6|7|8|9]/i.test(navigator.userAgent))){
+	new WOW().init();
+};
+</script>
+
+<div class="info">
+<p><strong>简介</strong></p>
+<p>有的页面在向下滚动的时候，有些元素会产生细小的动画效果。虽然动画比较小，但却能吸引你的注意。比如刚刚发布的 iPhone 6 的页面（查看）。如果你希望你的页面也更加有趣，那么你可以试试 WOW.js。WOW.js 依赖 animate.css，所以它支持 animate.css 多达 60 多种的动画效果，能满足您的各种需求。</p>
+<p><strong>浏览器兼容</strong></p>
+<p>IE10+ ✔　Chrome✔　Firefox ✔　Opera✔　Safari✔</p>
+<p>IE6、IE7 等老旧浏览器不支持 CSS3 动画，所以没有效果；而 wow.js 也使用了 querySelectorAll 方法，IE 低版本会报错。为了达到更好的兼容，最好加一个浏览器及版本判断。</p>
+<p><strong>使用方法</strong></p>
+<p><strong>1、引入文件</strong></p>
+<p>&lt;link rel="stylesheet" href="css/animate.min.css"&gt;</p>
+<p><strong>2、HTML</strong></p>
+<p>&lt;div class="wow slideInLeft"&gt;&lt;/div&gt;<br>
+&lt;div class="wow slideInRight"&gt;&lt;/div&gt;</p>
+<p>可以加入 data-wow-duration（动画持续时间）和 data-wow-delay（动画延迟时间）属性，如：<br>
+&lt;div class="wow slideInLeft" data-wow-duration="2s" data-wow-delay="5s"&gt;&lt;/div&gt;<br>
+&lt;div class="wow slideInRight" data-wow-offset="10" &nbsp;data-wow-iteration="10"&gt;&lt;/div&gt;</p>
+<p><strong>3、wow使用</strong></p>
+<p>class中必须要要包含wow</p>
+<p>data-wow-duration:改变动画过程时间</p>
+<p>data-wow-delay:延迟在动画开始之前</p>
+<p>data-wow-offset:距离开始动画(元素距离浏览器底部bottom多高时开始动画)</p>
+<p>data-wow-iteration:动画重复的次数</p>
+<p><strong>4、JavaScript</strong></p>
+<p>new WOW().init();</p>
+<p>如果需要自定义配置，可如下使用：</p>
+<p>var wow = new WOW({<br>
+&nbsp; &nbsp;boxClass: 'wow',<br>
+&nbsp; &nbsp;animateClass: 'animated',<br>
+&nbsp; &nbsp;offset: 0,<br>
+&nbsp; &nbsp;mobile: true,<br>
+&nbsp; &nbsp;live: true<br>
+});<br>
+wow.init();</p>
+<p><strong>配置</strong></p>
+<table align="left" border="1" cellpadding="1" cellspacing="1" style="width:600px;">
+<tbody>
+	<tr>
+	<td>属性/方法</td>
+	<td>类型</td>
+	<td>默认值</td>
+	<td>说明</td>
+	</tr>
+	<tr>
+	<td>boxClass</td>
+	<td>字符串</td>
+	<td>‘wow’</td>
+	<td>需要执行动画的元素的 class</td>
+	</tr>
+	<tr>
+	<td>animateClass</td>
+	<td>字符串</td>
+	<td>‘animated’</td>
+	<td>animation.css 动画的 class</td>
+	</tr>
+	<tr>
+	<td>offset</td>
+	<td>整数</td>
+	<td>0</td>
+	<td>距离可视区域多少开始执行动画</td>
+	</tr>
+	<tr>
+	<td>mobile</td>
+	<td>布尔值</td>
+	<td>true</td>
+	<td>是否在移动设备上执行动画</td>
+	</tr>
+	<tr>
+	<td>live</td>
+	<td>布尔值</td>
+	<td>true</td>
+	<td>异步加载的内容是否有效</td>
+	</tr>
+</tbody>
+</table>
+</div>
+
+<div style="clear:both;"></div>
+
+
+<style>
+.vad {margin: 50px 0 5px; padding-bottom: 60px; font-family: Consolas,arial,宋体; text-align:center;}
+.vad a { display: inline-block; height: 36px; line-height: 36px; margin: 0 5px; padding: 0 20px; font-size: 14px; text-align:center; color:#eee; text-decoration: none; background-color: #222;}
+.vad a:hover { color: #fff; background-color: #5fbf5f;}
+</style>
+<div>
+
+
+
+
+</div>
+
+<div class="footer" style="height: 200px"></div>
+</body></html>

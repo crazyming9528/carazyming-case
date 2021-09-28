@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<script src="jquery.min.js"></script>
+
+<script>
+var req = function(){
+     $.ajax({
+             url:'http://ebooking.elong.com/ebkroom/newPromotion/getAllHotelMayJoinPromotion',
+             type: "POST",
+             dataType: 'json',
+             contentType: "application/json;charset=UTF-8",
+         // xhrFields: {
+         //     withCredentials: true // 设置withCredentials为true
+         // },
+         // crossDomain: true,
+         data: JSON.stringify({}),
+             success:function (res) {
+                 console.log(res);
+
+             }
+         }
+     )
+ }
+
+
+var req2 = function(){
+    $.ajax({
+            url:'http://v_admin.crazyming.com/login',
+            type: "POST",
+            dataType: 'json',
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({"username":"demo","password":"demo123"}),
+            success:function (res) {
+                console.log(res);
+
+            }
+        }
+    )
+}
+
+var req3 = function(){
+    $.ajax({
+            url:'http://www.ming.com/ebk/newPromotion/getAllHotelMayJoinPromotion',
+            type: "POST",
+            dataType: 'json',
+            contentType: "application/json;charset=UTF-8",
+            data: JSON.stringify({}),
+            success:function (res) {
+                console.log(res);
+
+            }
+        }
+    )
+}
+
+</script>
+11
+<button onclick="req()">req</button>
+<button onclick="req2()">req2</button>
+<button onclick="req3()">req3</button>
+
+</body>
+</html>

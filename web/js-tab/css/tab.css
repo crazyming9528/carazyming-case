@@ -1,0 +1,56 @@
+.demo {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%; }
+  .demo h1 {
+    color: white;
+    width: 100%;
+    text-align: center;
+    margin: 20px 0; }
+  .demo p {
+    color: white;
+    margin: 15px 0;
+    width: 100%;
+    text-align: center; }
+
+.tab-wrapper {
+  width: 500px; }
+  .tab-wrapper .tab-nav {
+    height: 30px;
+    display: flex;
+    background-color: #4095ff; }
+    .tab-wrapper .tab-nav li {
+      flex: 1;
+      text-align: center;
+      list-style: none; }
+      .tab-wrapper .tab-nav li a {
+        display: block;
+        padding: 0 20px;
+        line-height: 30px;
+        text-decoration: none;
+        cursor: pointer;
+        color: white; }
+    .tab-wrapper .tab-nav .active {
+      background-color: orangered; }
+  .tab-wrapper .content-wrapper {
+    height: 200px;
+    background-color: white;
+    padding: 0;
+    overflow: hidden;
+    position: relative; }
+    .tab-wrapper .content-wrapper .content-item {
+      display: none;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      transition: all .3s;
+      position: absolute;
+      top: 0;
+      left: 0; }
+      .tab-wrapper .content-wrapper .content-item img {
+        width: 100%; }
+    .tab-wrapper .content-wrapper .current {
+      display: block; }
+
+/*# sourceMappingURL=tab.css.map */

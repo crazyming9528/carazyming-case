@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>将下划线命名转小驼峰大驼峰命名
+</h1>
+
+<p>console.log(“小驼峰”, toCamel(“user_name”, “small”));//小驼峰 userName</p>
+<p> console.log(“大驼峰”, toCamel(“user_name”, “big”));//大驼峰 UserName</p>
+
+<script>
+
+    function toCamel(str, type) {
+        var arr = [];
+        arr = str.split("");
+        var res = arr.map((item, index) => {
+            if (item === '_') {
+                item = "";
+                if (arr[index + 1]) arr[index + 1] = arr[index + 1].toLocaleUpperCase();
+            }
+            return item;
+        });
+        var resStr = res.join("");
+        switch (type) {
+            case 'small':
+                resStr = resStr.replace(resStr[0], resStr[0].toLocaleLowerCase());
+                break;
+            case 'big':
+                resStr = resStr.replace(resStr[0], resStr[0].toLocaleUpperCase());
+                break;
+            default:
+                throw "转换类型错误 仅限 small  big"
+        }
+        return resStr;
+    }
+
+    console.log("小驼峰", toCamel("user_name", "small"));//小驼峰
+    console.log("大驼峰", toCamel("user_name", "big"));//大驼峰
+</script>
+
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+</head>
+<body>
+<h1>
+    去除字符串中最后一个指定的字符
+</h1>
+<p>
+    deleteLastStr('数据源', '源')  ;//数据
+</p>
+<script>
+    function deleteLastStr(origin, str) {
+        if (typeof origin === "string" && typeof str === 'string') {
+
+            var arr = origin.split('')
+            arr.splice(origin.lastIndexOf(str), 1);
+            return arr.join('');
+
+        } else {
+            throw "数据类型错误";
+        }
+    }
+    console.log(deleteLastStr('origin', 'n'));// origi
+</script>
+
+</body>
+</html>

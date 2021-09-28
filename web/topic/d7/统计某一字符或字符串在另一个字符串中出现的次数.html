@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+</head>
+<body>
+
+
+<script>
+    function strCount(origin, str) {
+        var reg = new RegExp(str, 'g');
+        //console.log(origin.match(reg));  调试查看 这里是个数组 其中存放了与它找到的匹配文本有关的信息
+        return origin.match(reg).length;
+    }
+
+
+    function strCount2(origin, str) {
+        return origin.split(str).length - 1;
+    }
+</script>
+
+</body>
+</html>

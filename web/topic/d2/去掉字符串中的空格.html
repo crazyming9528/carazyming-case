@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>Title</title>
+</head>
+<body>
+<h1>写一个方法去掉字符串中的空格，要求传入不同的类型分别能去掉前、后、前后、中间的空格</h1>
+
+<p>执行 trim(" 这 是 一 个 字    符 串 ","all")</p>
+
+<p>参数:[需要处理的字符串,处理字符串的方式(all,before,after,beforeAndAfter)]</p>
+<script>
+
+
+    function trim(str, type) {
+        var t = type || "all";
+        var map = {
+            all: /\s+/g, //  去除字符串所有空格   \s空白字符串   g 修饰符 表示 执行全局匹配（查找所有匹配而非在找到第一个匹配后停止）
+            before: /^\s*/, //  去除字符串前面的空格      \s空白字符串   ^\s表示 以 空白字符串开头  *表示 匹配任何包含零个或多个 n 的字符串。
+            after: /\s*$/,//去除字符串 后面的空格  \s空白字符串   \s$表示以空白字符串结尾      *表示 匹配任何包含零个或多个 n 的字符串。
+            beforeAndAfter: /^\s*|\s*$/g,// 去除字符串 前后的空格    |表示 或的意思
+        };
+        if (map[t]) {
+            return str.replace(map[t], '');
+        } else {
+            throw  "传入的类型错误";
+        }
+
+    }
+
+    console.log('去掉全部空格,all', trim(" 这 是 一 个 字    符 串  ",'all'));//去掉全部空格,all 这是一个字符串
+    console.log('去掉前面的空格,before', trim(" 这 是 一 个 字    符 串  ",'before'));//去掉前面的空格,all 这 是 一 个 字    符 串
+    console.log('去掉后面的空格,after', trim(" 这 是 一 个 字    符 串  ",'after'));//去掉后面的空格,all  这 是 一 个 字    符 串
+    console.log('去掉前后的空格,beforeAndAfter', trim(" 这 是 一 个 字    符 串  ",'beforeAndAfter'));//去掉前后的空格,all 这 是 一 个 字    符 串
+
+
+</script>
+
+</body>
+</html>

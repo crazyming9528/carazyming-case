@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="screen-orientation" content="portrait">
+    <meta name="x5-orientation" content="portrait">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <title></title>
+    <link rel="stylesheet" href="css/commons.css">
+    <link rel="stylesheet" href="css/sass/swiper.css">
+    <link rel="stylesheet" href="css/layer.css">
+    <link rel="stylesheet" href="css/sass/index2.css">
+    <style>
+        .swiper-slide-active{
+            transform: scale(1.2) !important;
+        }
+    </style>
+<!--    <script>-->
+<!--        var _hmt = _hmt || [];-->
+<!--        (function() {-->
+<!--            var hm = document.createElement("script");-->
+<!--            hm.src = "https://hm.baidu.com/hm.js?04761c17f83d291771c79dfa065a3d83";-->
+<!--            var s = document.getElementsByTagName("script")[0];-->
+<!--            s.parentNode.insertBefore(hm, s);-->
+<!--        })();-->
+<!--    </script>-->
+</head>
+<body>
+<!--播放音乐-->
+<audio autoplay loop id="audio">
+    你的浏览器暂不支持
+</audio>
+<!--弹幕-->
+<div class="danmu clearfix" id="danmu-box">
+    <div class="danmu-box GPU" >
+        <!--<div class="danmu-item">-->
+        <!--<span>تىزىملاتسىڭىزلا  قىزىل بولاققا ئېرىشەلەيسىز</span>-->
+        <!--</div>-->
+        <!--<div class="danmu-item">-->
+        <!--xxx用户抽中了xxx大奖-->
+        <!--</div>-->
+        <!--<div class="danmu-item">-->
+        <!--xxx用户抽中了xxx大奖-->
+        <!--</div>-->
+        <!--&lt;!&ndash;<div class="danmu-item">&ndash;&gt;-->
+        <!--&lt;!&ndash;xxx用户抽中了xxx大奖&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="danmu-item">&ndash;&gt;-->
+        <!--&lt;!&ndash;xxx用户抽中了xxx大奖&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="danmu-item">&ndash;&gt;-->
+        <!--&lt;!&ndash;xxx用户抽中了xxx大奖&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--&lt;!&ndash;<div class="danmu-item">&ndash;&gt;-->
+        <!--&lt;!&ndash;xxx用户抽中了xxx大奖&ndash;&gt;-->
+        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+        <!--<div class="danmu-item">-->
+        <!--تىزىملاتسىڭىزلا  قىزىل بولاققا ئېرىشەلەيسىز-->
+        <!--</div>-->
+        <!--<div class="danmu-item">-->
+        <!--<>تىزىملاتسىڭىزلا  قىزىل بولاققا ئېرىشەلەيس-->
+        <!--</div>-->
+        <!--<div class="danmu-item">-->
+        <!--<>تىزىملاتسىڭىزلا  قىزىل بولاققا ئېرىشەلەيس-->
+        <!--</div>-->
+    </div>
+</div>
+<div id="danmu-box1">
+
+</div>
+<!--loading-->
+<div class="loading">
+    <img src="img/loading.gif" alt="">
+</div>
+    <!--头部下载-->
+    <div class="top-down" id="top-down">
+        <div class="top-down-left">
+            <button class="btn btn-down" id="btn-down">
+                <img src="" alt="">
+            </button>
+            <div class="downing" style="display: none" id="downing2">
+                <div class="sv-box">
+                    <svg width="100%" height="100%">
+                        <circle cx="50%" cy="50%" r="45%" fill="none" stroke="#575757" stroke-width="2.85" stroke-linecap="round" style="opacity: 0.5"/>
+                        <circle class="circle-progress-bar" cx="50%" cy="50%" r="45%" fill="none" stroke="white" stroke-width="2.85" stroke-linecap="round" />
+                    </svg>
+                </div>
+                <p><span id="jd2"></span><span id="m2">چۈشۈۋاتىدۇ</span></p>
+                <!--<div class="gif">-->
+                    <!--<img src="img/jingdu.gif" alt="">-->
+                <!--</div>-->
+            </div>
+        </div>
+        <div class="top-down-right">
+            <div class="mess">
+                <p id="name"></p>
+                <p id="desc"></p>
+            </div>
+            <div class="icon" >
+                <img src="" alt="" id="icon">
+            </div>
+        </div>
+    </div>
+    <!--中间-->
+    <div class="mid-bg" id="mid-down">
+        <img src="" alt="" id="mid-bg">
+    </div>
+    <!--下载模块-->
+    <div class="do-module">
+        <div class="no-down" id="no-down">
+            <div class="dwon" id="dwon">
+                <button class="btn btn-down" id="btn-dow">
+                    <img src="" alt="">
+                </button>
+            </div>
+            <div class="nav-drop">
+                <img src="./img/arrows.png" alt="">
+            </div>
+        </div>
+        <div class="downing" style="display: none" id="downing">
+            <!--<p><span id="jd"></span><span>چۈشۈۋاتىدۇ</span></p>-->
+            <!--<div class="gif">-->
+                <!--<img src="img/jingdu.gif" alt="">-->
+            <!--</div>-->
+            <div class="sv-box">
+                <svg width="100%" height="100%">
+                    <circle cx="50%" cy="50%" r="45%" fill="none" stroke="#575757" stroke-width="2.85" stroke-linecap="round" style="opacity: 0.5"/>
+                    <circle class="circle-progress-bar" cx="50%" cy="50%" r="45%" fill="none" stroke="white" stroke-width="2.85" stroke-linecap="round" />
+                </svg>
+            </div>
+            <p><span id="jd"></span><span id="m">چۈشۈۋاتىدۇ</span></p>
+        </div>
+    </div>
+    <!--标题模块-->
+    <div class="mo clearfix" id="mo">
+       <!--<div class="title"></div>-->
+        <div class="sw">
+            <!--使用轮播插件-->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+
+                    <div class="swiper-slide">
+                        <div class="prize-square" id="lun1">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="prize-square" id="lun2">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="prize-square" id="lun3">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="prize-square" id="lun4">
+                            <img src="" alt="">
+                        </div>
+                    </div>
+                </div>
+                 <!--如果需要导航按钮 -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+    </div>
+    <!--底部模块-->
+    <div class="footer">
+        <img src="" alt="" id="footer">
+    </div>
+<script src="js/rem.js"></script>
+<script src="js/fastclick.js"></script>
+<script src="js/letvariable.js"></script>
+<script src="js/javascriptBrige.js"></script>
+<script src="js/swiper.js"></script>
+    <script src="js/jquer.js"></script>
+<script src="js/layer.js"></script>
+    <script src="js/muban2-compile.js"></script>
+<script>
+    document.onreadystatechange=function () {
+        if(document.readyState=="complete"){
+            setTimeout(function () {
+                document.querySelector('.loading').style.display='none';
+            },1000)
+
+        }
+    }
+</script>
+
+</body>
+</html>
