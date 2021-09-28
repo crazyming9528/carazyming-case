@@ -33,6 +33,4 @@ jobs:
           username: ${{ secrets.FTP_NAME }}
           password: ${{ secrets.FTP_PW }}
           dangerous-clean-slate: true
-          exclude:
-            - '- **/.git*'
-            - '**/.git*/**'
+          exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
