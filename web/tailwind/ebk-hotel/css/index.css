@@ -127,6 +127,7 @@ i.fa {
 }
 .article-list-panel .top h2.title {
   font-size: 17px;
+  padding: 0 10px;
   margin: 0;
 }
 .article-list-panel .top span {
@@ -179,6 +180,7 @@ i.fa {
 }
 .article-grid-panel .top h2.title {
   font-size: 17px;
+  padding: 0 10px;
   margin: 0;
 }
 .article-grid-panel .top span {
