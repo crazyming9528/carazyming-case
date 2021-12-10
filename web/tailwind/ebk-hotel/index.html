@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <head>
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta name="referrer" content="same-origin">
     <meta charset="UTF-8">
     <title>Title</title>
     <!--    <link rel="stylesheet" href="http://ebooking.elong.com/html5/resources/css/weui.min.css">-->
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="./js/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/holder.min.js"></script>
     <script src="js/swiper/swiper-bundle.min.js"></script>
 
 </head>
-<body class="bg-grey">
+<body>
 <div class="page-wrapper" id="app">
     <!--<header class="nav-bar-panel">-->
     <!--    <div class="back"><i class="fa fa-angle-left" aria-hidden="true"></i></div>-->
@@ -44,11 +46,12 @@
         </div>
     </div>
     <div class="article-list-panel">
-        <header class="top"><h2 class="title">热门文章</h2><span>更多<i class="fa fa-angle-right"
-                                                                  aria-hidden="true"></i></span>
+        <header class="top"><h2 class="title">热门文章</h2><a class="more" href="./article-list.html">更多<i
+                class="fa fa-angle-right"
+                aria-hidden="true"></i></a>
         </header>
         <ul class="article-list-ul">
-            <li class="article-list-item" v-for="(item,index) of articleList">
+            <li class="article-list-item" @click="jumpUrl(item.url)" v-for="(item,index) of articleList">
                 <div class="left">
                     <div class="title">{{item.title}}</div>
                     <div class="info"><span>{{dayjs(item.publishTime).format('YYYY-MM-DD HH:mm:ss')}}</span><span><i
@@ -63,8 +66,9 @@
         </ul>
     </div>
     <div class="article-grid-panel">
-        <header class="top"><h2 class="title">商家必学</h2><span>更多<i class="fa fa-angle-right"
-                                                                  aria-hidden="true"></i></span>
+        <header class="top"><h2 class="title">商家必学</h2><a class="more" href="./hotel-grid-list.html">更多<i
+                class="fa fa-angle-right"
+                aria-hidden="true"></i></a>
         </header>
         <ul class="article-grid-ul">
             <li class="article-grid-item" v-for="(item,index) of articleGrid">

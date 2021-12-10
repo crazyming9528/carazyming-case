@@ -1,0 +1,17 @@
+.tab-panel {
+  height: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.tab-panel .tab-item.active {
+  color: #1EABF1;
+}
+.tag-panel h2.tag-name {
+  margin: 15px 0;
+  padding: 0 10px;
+  color: #333333;
+  font-size: 17px;
+}
+/*# sourceMappingURL=hotel-grid-list.css.map */

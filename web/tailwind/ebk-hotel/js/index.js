@@ -1,5 +1,4 @@
 var controllerPathPrefix = 'http://ebooking.elong.com/html5';
-
 var vm = new Vue({
     el: "#app",
     data: {
@@ -18,8 +17,11 @@ var vm = new Vue({
             }
             console.log('显示最近搜索:', vm.isShowRecentSearchPanel)
         },
+        jumpUrl(url) {
+            window.location.href = url;
+        },
         getData() {
-            const api = new HotelTrainingApi(controllerPathPrefix);
+            var api = new HotelTrainingApi(controllerPathPrefix, axios);
             axios.all([api.getHomeBanner(), api.getHomeArticleList(), api.getHomeArticleGrid()]).then(axios.spread(function (banner, articleList, articleGrid) {
                 console.log(banner, articleList, articleGrid);
                 if (banner.status === 200) {
