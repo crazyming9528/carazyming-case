@@ -78,14 +78,14 @@ i.fa {
     font-weight: lighter;
   }
 
-  .recent-search {
+  .recent-search-panel {
     width: 100%;
     height: calc(100vh - 45px);
     background-color: #F4F4F4;
     position: absolute;
     left: 0;
     top: 45px;
-    display: none;
+    z-index: 10000;
 
     .recent-search-title {
       font-size: 12px;
@@ -103,6 +103,7 @@ i.fa {
         height: 50px;
         color: #666666;
         font-size: 14px;
+        box-sizing: border-box;
         //overflow: hidden;
         //white-space: nowrap;
         //text-overflow: ellipsis;
@@ -173,6 +174,7 @@ i.fa {
     .article-list-item {
       display: flex;
       padding: 10px;
+      align-items: center;
 
       &:not(:last-child) {
         border-bottom: 1px solid #f1f1f1;
@@ -180,9 +182,20 @@ i.fa {
 
       .left {
         flex: 1;
+        display: flex;
+        flex-wrap: wrap;
+        height: 60px;
+        flex-direction: column;
+        justify-content: space-around;
+
 
         .title {
           color: #333333;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
         }
 
         .info {
@@ -202,9 +215,13 @@ i.fa {
       .right {
         width: 60px;
         height: 60px;
-        background-color: #0c5460;
         margin-left: 15px;
         font-size: 0;
+
+        img {
+          width: 100%;
+          height: 100%;
+        }
       }
     }
 
@@ -271,9 +288,19 @@ i.fa {
       }
 
       .bottom {
-        padding: 10px;
+        padding: 0 10px;
+        height: 80px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
 
         .title {
+          text-overflow: ellipsis;
+          overflow: hidden;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
 
         }
 
