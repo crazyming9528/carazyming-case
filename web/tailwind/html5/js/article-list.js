@@ -67,8 +67,11 @@ var vm = new Vue({
             )
 
         },
-        jumpUrl(url) {
-            window.location.href = url;
+        jumpUrl(item) {
+            var api = new HotelTrainingApi(controllerPathPrefix, axios);
+            api.getArticleDetailInfo({id: item.id, tagType: 1}).finally(function () {
+                window.location.href = item.url;
+            })
         }
 
     },

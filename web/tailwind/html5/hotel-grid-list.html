@@ -24,13 +24,15 @@
             <h2 class="tag-name">{{tag.text}}</h2>
             <ul class="article-grid-ul">
                 <li class="article-grid-item" v-for="(item,i) of  tag.list">
-                    <div class="cover"><img :src="item.fileThumb" alt=""></div>
-                    <div class="bottom">
-                        <div class="title">{{item.title}}</div>
-                        <div class="info"><span class="grade">{{item.score}}分</span><span><i class="fa fa-eye"
-                                                                                             aria-hidden="true"></i>{{item.views}}</span>
+                    <a :href="'./detail.html?id='+item.id">
+                        <div class="cover"><img :src="item.fileThumb" alt=""></div>
+                        <div class="bottom">
+                            <div class="title">{{item.title}}</div>
+                            <div class="info"><span class="grade">{{item.score}}分</span><span><i class="fa fa-eye"
+                                                                                                 aria-hidden="true"></i>{{item.views}}</span>
+                            </div>
                         </div>
-                    </div>
+                    </a>
                 </li>
                 <li class="article-grid-item-placeholder"></li>
                 <li class="article-grid-item-placeholder"></li>
@@ -49,13 +51,15 @@
     <div class="tab-list-page" v-else>
         <ul class="article-grid-ul">
             <li class="article-grid-item" v-for="(item,index) of articleGrid">
-                <div class="cover"><img :src="item.fileThumb" alt=""></div>
-                <div class="bottom">
-                    <div class="title">{{item.title}}</div>
-                    <div class="info"><span class="grade">{{item.score}}分</span><span><i class="fa fa-eye"
-                                                                                         aria-hidden="true"></i>{{item.views}}</span>
+                <a href="./detail.html">
+                    <div class="cover"><img :src="item.fileThumb" alt=""></div>
+                    <div class="bottom">
+                        <div class="title">{{item.title}}</div>
+                        <div class="info"><span class="grade">{{item.score}}分</span><span><i class="fa fa-eye"
+                                                                                             aria-hidden="true"></i>{{item.views}}</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </li>
             <li class="article-grid-item-placeholder"></li>
             <li class="article-grid-item-placeholder"></li>

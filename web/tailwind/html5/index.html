@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="./js/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
-    <script src="js/holder.min.js"></script>
     <script src="js/swiper/swiper-bundle.min.js"></script>
 
 </head>
@@ -24,14 +23,18 @@
     <div class="search-panel">
         <div class="search-input-wrapper">
             <i class="fa fa-search" aria-hidden="true"></i>
-            <input class="search-input" @click="toggleRecentSearchPanel(true)" type="text" placeholder="搜索感兴趣的内容">
+            <input class="search-input" v-model="searchText" @keydown.enter="search()"
+                   @click="toggleRecentSearchPanel()"
+                   type="text"
+                   placeholder="搜索感兴趣的内容">
             <div v-show="isShowRecentSearchPanel" class="cancel-btn" @click="toggleRecentSearchPanel(false)">取消</div>
         </div>
         <div class="recent-search-panel" v-if="isShowRecentSearchPanel">
             <div class="recent-search-title">最近搜索</div>
             <ul class="recent-search-ul">
-                <li class="recent-search-item" v-for="(item,index) of 10" @click="toggleRecentSearchPanel(false)">
-                    最近搜索内容{{index}}
+                <li class="recent-search-item" :key="index" v-for="(item,index) of recentlySearch"
+                    @click="selectRecentlySearch(item)">
+                    {{item}}
                 </li>
             </ul>
         </div>
@@ -51,7 +54,7 @@
                 aria-hidden="true"></i></a>
         </header>
         <ul class="article-list-ul">
-            <li class="article-list-item" @click="jumpUrl(item.url)" v-for="(item,index) of articleList">
+            <li class="article-list-item" @click="jumpUrl(item)" v-for="(item,index) of articleList">
                 <div class="left">
                     <div class="title">{{item.title}}</div>
                     <div class="info"><span>{{dayjs(item.publishTime).format('YYYY-MM-DD HH:mm:ss')}}</span><span><i
@@ -71,14 +74,17 @@
                 aria-hidden="true"></i></a>
         </header>
         <ul class="article-grid-ul">
+
             <li class="article-grid-item" v-for="(item,index) of articleGrid">
-                <div class="cover"><img :src="item.fileThumb" alt=""></div>
-                <div class="bottom">
-                    <div class="title">{{item.title}}</div>
-                    <div class="info"><span class="grade">{{item.score}}分</span><span><i class="fa fa-eye"
-                                                                                         aria-hidden="true"></i>{{item.views}}</span>
+                <a :href="'./detail.html?id='+item.id">
+                    <div class="cover"><img :src="item.fileThumb" alt=""></div>
+                    <div class="bottom">
+                        <div class="title">{{item.title}}</div>
+                        <div class="info"><span class="grade">{{item.score}}分</span><span><i class="fa fa-eye"
+                                                                                             aria-hidden="true"></i>{{item.views}}</span>
+                        </div>
                     </div>
-                </div>
+                </a>
             </li>
             <li class="article-grid-item-placeholder"></li>
             <li class="article-grid-item-placeholder"></li>

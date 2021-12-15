@@ -7,18 +7,55 @@ var vm = new Vue({
         bannerList: [],
         articleList: [],
         articleGrid: [],
+        recentlySearch: [],
+        searchText: "",
     },
     methods: {
+        // 保存最近搜索
+        saveRecentlySearch() {
+            var str = this.searchText;
+            if (window.localStorage) {
+                var rs = localStorage.getItem('recentlySearch');
+                var rsArray;
+                if (rs) {
+                    rsArray = JSON.parse(rs);
+                    rsArray.push(str);
+                } else {
+                    rsArray = [str]
+                }
+                localStorage.setItem("recentlySearch", JSON.stringify(rsArray));
+            }
+        },
+        getRecentlySearch() {
+            if (window.localStorage) {
+                var rs = localStorage.getItem('recentlySearch');
+                this.recentlySearch = rs ? JSON.parse(rs).reverse() : [];
+            }
+        },
+        search(saveLog) {
+            window.location.href = 'search.html?q=' + vm.searchText;
+        },
+        selectRecentlySearch(str) {
+            vm.searchText = str;
+            vm.toggleRecentSearchPanel(false);
+            vm.search();
+        },
         toggleRecentSearchPanel(bool) {
             if (typeof bool == "boolean") {
                 vm.isShowRecentSearchPanel = bool;
             } else {
                 vm.isShowRecentSearchPanel = !vm.isShowRecentSearchPanel;
             }
+            if (vm.isShowRecentSearchPanel) {
+                vm.getRecentlySearch();
+            }
             console.log('显示最近搜索:', vm.isShowRecentSearchPanel)
         },
-        jumpUrl(url) {
-            window.location.href = url;
+        jumpUrl(item) {
+            var api = new HotelTrainingApi(controllerPathPrefix, axios);
+            api.getArticleDetailInfo({id: item.id, tagType: 1}).finally(function () {
+                window.location.href = item.url;
+            })
         },
         getData() {
             var api = new HotelTrainingApi(controllerPathPrefix, axios);

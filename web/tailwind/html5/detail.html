@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta charset="UTF-8">
+    <meta name="referrer" content="same-origin">
+    <title>文章推荐</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/detail.css">
+    <link
+            rel="stylesheet"
+            href="./js/vant/index.css"
+    />
+</head>
+<body>
+<div class="page-wrapper" id="app">
+    <div class="detail-panel">
+        <div class="video-wrapper">
+            <video autoplay controls :src="detailData.url"></video>
+        </div>
+        <div class="title">{{detailData.title}}</div>
+        <div class="desc">
+            {{detailData.content}}
+        </div>
+
+        <div class="info">
+            <span class="grade">4.9分</span>
+            <span><i class="fa fa-eye"
+                     aria-hidden="true"></i>{{detailData.views || 0}}</span>
+        </div>
+        <div class="time">发布时间 {{dayjs(detailData.publishTime).format('YYYY-MM-DD HH:mm:ss')}}</div>
+    </div>
+    <h2 class="comment-title">评论</h2>
+    <div class="comment-panel">
+        <div class="no-comment" v-if="commentList.length===0">
+            <div class="bg"></div>
+            <p>暂无数据，快来<span class="blue">添加</span>吧！</p>
+            <div class="btn-wrapper">
+                <a :href="'comment.html?id='+detailData.id">
+                    <button class="btn">评论</button>
+                </a>
+            </div>
+
+        </div>
+        <ul class="comment-list-ul">
+            <li class="comment-item" :key="index" v-for="(comment,index) of commentList">
+                <div class="info">
+                    <span>{{comment.staffNameEn}}</span><span>{{dayjs(comment.timestamp).format('YYYY-MM-DD HH:mm:ss')}}</span>
+                </div>
+                <div class="score-row">
+                    <div class="score">{{comment.score}}</div>
+                    <div class="rate">
+                        <van-rate
+                                readonly
+                                allow-half
+                                v-model="comment.score"
+                                :size="15"
+                                color="#fdaf2d"
+                                void-icon="star"
+                                void-color="#F5F5F5"
+                        />
+                    </div>
+                </div>
+                <div class="content">{{comment.content}}</div>
+            </li>
+        </ul>
+        <a class="write" v-if="commentList.length!==0" :href="'comment.html?id='+detailData.id"><img
+                src="./img/write.png" alt="">评论</a>
+    </div>
+    <div class="comment-guide" v-if="commentList.length!==0">您对本期课程满意吗？快说出你的想法吧！</div>
+
+
+</div>
+<script src="./js/vue/vue.min.js"></script>
+<script src="./js/axios/axios.min.js"></script>
+<script src="./js/dayjs/dayjs.min.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/util.js"></script>
+<script src="./js/vant/vant.min.js"></script>
+<script src="./js/detail.js"></script>
+</body>
+</html>

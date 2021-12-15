@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta charset="UTF-8">
+    <meta name="referrer" content="same-origin">
+    <title>评论</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/comment.css">
+    <link
+            rel="stylesheet"
+            href="./js/vant/index.css"
+    />
+</head>
+<body>
+<div class="page-wrapper" id="app">
+    <div class="write-comment-panel">
+        <div class="item-score">
+            <div class="label">满意度</div>
+            <div class="rate">
+
+                <van-rate
+                        v-model="score"
+                        :size="24"
+                        color="#fdaf2d"
+                        void-icon="star"
+                        void-color="#F5F5F5"
+                />
+
+            </div>
+            <div class="rate-text">{{getRateText(score)}}</div>
+        </div>
+        <div class="item-comment">
+            <div class="label"><span>评论</span>
+                <!--                <span>0/500</span>-->
+            </div>
+            <van-field
+                    show-word-limit
+                    v-model="content"
+                    rows="4"
+                    autosize
+                    type="textarea"
+                    maxlength="500"
+                    placeholder="您对本期课程满意吗？快说出你的想法吧！"
+            />
+            <textarea class="comment" placeholder="您对本期课程满意吗？快说出你的想法吧！" name="comment" id="" rows="5"></textarea>
+        </div>
+        <div class="btn-wrapper">
+            <button @click="submitComment" class="btn">提交</button>
+        </div>
+    </div>
+</div>
+<script src="./js/vue/vue.min.js"></script>
+<script src="./js/axios/axios.min.js"></script>
+<script src="./js/dayjs/dayjs.min.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/util.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+<script src="./js/comment.js"></script>
+</body>
+</html>

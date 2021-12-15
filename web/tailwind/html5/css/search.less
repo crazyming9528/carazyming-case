@@ -1,0 +1,146 @@
+.page-wrapper {
+  background-color: white;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.search-panel {
+  padding: 0 10px;
+  //height: 45px;
+  background-color: white;
+  position: relative;
+
+
+  .search-input-wrapper {
+    position: relative;
+    height: 45px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .search-input {
+      border-radius: 18px;
+      border: none;
+      background-color: #F4F4F4;
+      height: 36px;
+      line-height: 36px;
+      width: 100%;
+      padding: 0 40px;
+    }
+
+    .cancel-btn {
+      width: 60px;
+      color: #1EABF1;
+      text-align: center;
+      font-size: 14px;
+      padding-left: 10px;
+    }
+
+  }
+
+  .fa-search {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 20px;
+    color: #b2b2b2;
+    font-weight: lighter;
+  }
+
+  .recent-search-panel {
+    width: 100%;
+    height: calc(100vh - 45px);
+    background-color: #F4F4F4;
+    position: absolute;
+    left: 0;
+    top: 45px;
+    z-index: 10000;
+
+    .recent-search-title {
+      font-size: 12px;
+      padding: 5px 10px;
+    }
+
+    .recent-search-ul {
+      min-width: 0;
+
+      .recent-search-item {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        height: 50px;
+        color: #666666;
+        font-size: 14px;
+        box-sizing: border-box;
+        //overflow: hidden;
+        //white-space: nowrap;
+        //text-overflow: ellipsis;
+        background-color: white;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid #F4F4F4;
+        }
+      }
+
+    }
+
+  }
+
+}
+
+.tab-panel {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px 1px 6px 0px rgba(0, 0, 0, 0.1);
+
+  .tab {
+    flex: 1;
+    text-align: center;
+    font-size: 15px;
+
+    &.active {
+      color: #1EABF1;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        width: 20px;
+        height: 2px;
+        background-color: #1EABF1;
+        content: '';
+        display: block;
+        left: 50%;
+        bottom: -5px;
+        transform: translateX(-50%);
+
+      }
+    }
+  }
+
+}
+
+.search-result-panel {
+  margin-top: 15px;
+  flex: 1;
+
+  .article-grid-ul {
+    .van-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+
+    .van-list__finished-text {
+      width: 100%;
+    }
+
+  }
+
+
+}
+
