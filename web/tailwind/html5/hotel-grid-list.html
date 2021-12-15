@@ -11,7 +11,7 @@
     <link rel="stylesheet" href="css/hotel-grid-list.css">
 </head>
 <body>
-<div class="page-wrapper" id="app">
+<div class="page-wrapper" v-cloak id="app">
     <div class="tab-panel">
         <div class="tab-item" :class="{active:currentTab===item.tag}" :key="item.tag" v-for="(item,index) of  tabList"
              @click="toggleTag(item.tag)"
@@ -19,8 +19,8 @@
             {{item.text}}
         </div>
     </div>
-    <div class="index-page" v-if="currentTab===-1">
-        <div class="tag-panel" :key="index" v-for="(tag,index) of indexPageData">
+    <div class="index-panel" v-if="currentTab===-1">
+        <div class="tag-wrapper" :key="index" v-for="(tag,index) of indexPageData">
             <h2 class="tag-name">{{tag.text}}</h2>
             <ul class="article-grid-ul">
                 <li class="article-grid-item" v-for="(item,i) of  tag.list">
@@ -48,7 +48,7 @@
         </div>
 
     </div>
-    <div class="tab-list-page" v-else>
+    <div class="tab-list-panel" v-else>
         <ul class="article-grid-ul">
             <li class="article-grid-item" v-for="(item,index) of articleGrid">
                 <a href="./detail.html">

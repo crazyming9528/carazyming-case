@@ -1,13 +1,50 @@
+.page-wrapper {
+  background-color: white;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  height: 100%;
+}
+
 .tab-panel {
   height: 45px;
   display: flex;
   align-items: center;
   justify-content: space-around;
+  background-color: white;
   box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  margin-bottom: 10px;
+
 
   .tab-item {
+    font-size: 15px;
+    color: #999999;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background-color: #1EABF1;
+      background: linear-gradient(143deg, #76E8F9 0%, #56A5E7 54%, #0E52C0 100%);
+      content: '';
+      display: block;
+      border-radius: 1px;
+      left: 50%;
+      bottom: -5px;
+      transform: translateX(-50%);
+      transition: all .5s;
+
+    }
+
     &.active {
       color: #1EABF1;
+
+      &::after {
+        opacity: 1;
+        width: 80%;
+      }
     }
 
   }
@@ -17,7 +54,9 @@
 .article-list-panel {
   padding: 10px;
   background-color: white;
-  margin-bottom: 15px;
+  //margin-bottom: 15px;
+  flex: 1;
+  overflow: auto;
 
   .top {
     display: flex;

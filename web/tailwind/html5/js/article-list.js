@@ -1,5 +1,5 @@
 var controllerPathPrefix = 'http://ebooking.elong.com/html5';
-
+var api = new HotelTrainingApi(controllerPathPrefix, axios);
 var vm = new Vue({
     el: "#app",
     data: {
@@ -7,25 +7,18 @@ var vm = new Vue({
         tabList: [{tag: -1, text: "全部"}],// 顶部tab集合
         currentTab: -1,// -1表示全部
         articleList: [],
-        articleGrid: [],
+        listLoading: false, // list组件  是否加载中
+        listFinished: false,// list组件   是否加载完成
+        showList: false,
         pageData: {
-            page: 1,
+            page: 0,
             pageSize: 10,
         }
     },
     methods: {
-        toggleRecentSearchPanel(bool) {
-            if (typeof bool == "boolean") {
-                vm.isShowRecentSearchPanel = bool;
-            } else {
-                vm.isShowRecentSearchPanel = !vm.isShowRecentSearchPanel;
-            }
-            console.log('显示最近搜索:', vm.isShowRecentSearchPanel)
-        },
         toggleTag(newTag) {
             this.currentTab = newTag;
             this.refreshList();
-
         },
         getTag() {
             var api = new HotelTrainingApi(controllerPathPrefix, axios);
@@ -36,39 +29,66 @@ var vm = new Vue({
                     Object.keys(data).forEach(function (key) {
                         _this.tabList.push({tag: key, text: data[key]});
                     })
-                }
 
-                _this.refreshList();
+                }
             })
         },
         refreshList() {
+            this.listLoading = false;
+            this.listFinished = false;
             this.articleList = [];
-            this.pageData.page = 1;
+            this.pageData.page = 0;
             this.pageData.pageSize = 10;
-            this.getList();
+            this.onLoadList();
         },
         getList() {
-            var api = new HotelTrainingApi(controllerPathPrefix, axios);
-            var data = {
-                page: this.pageData.page,
-                pageSize: this.pageData.pageSize,
-            }
-            if (this.currentTab !== -1) {
-                data.tab = this.currentTab;
-            }
             var _this = this;
-            api.getArticleList(data).then(function (res) {
-                    if (res.data.retcode === 0) {
-                        var data = res.data.data;
-                        _this.articleList = data.list;
-                    }
-
+            return new Promise(function (resolve, reject) {
+                var data = {
+                    page: _this.pageData.page,
+                    pageSize: _this.pageData.pageSize,
                 }
-            )
+                if (_this.currentTab !== -1) {
+                    data.tab = _this.currentTab;
+                }
+                api.getArticleList(data).then(function (res) {
+                        if (res.data.retcode === 0) {
+                            var data = res.data.data;
+                            var list = res.data.data.list;
+                            if (list && list.length > 0) {
+                                list.forEach(function (item) {
+                                    _this.articleList.push(item);
+                                })
+                            }
+                            resolve(data);
+                        } else {
+                            reject(res.data.retdesc);
+                        }
+
+                    }
+                ).catch(function (err) {
+                    reject(err);
+                })
+            })
+
+        },
+        onLoadList() {
+            this.pageData.page++;
+            var _this
+                = this;
+            this.getList().then(function (data) {
+                if (_this.articleList.length >= data.total) {
+                    _this.listFinished = true;
+                }
+            }).catch(function (err) {
+                console.log(err);
+                _this.listFinished = true;
+            }).finally(function () {
+                _this.listLoading = false;
+            })
 
         },
         jumpUrl(item) {
-            var api = new HotelTrainingApi(controllerPathPrefix, axios);
             api.getArticleDetailInfo({id: item.id, tagType: 1}).finally(function () {
                 window.location.href = item.url;
             })

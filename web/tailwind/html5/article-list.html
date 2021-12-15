@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/article-list.css">
+    <link rel="stylesheet" href="./js/vant/index.css">
 </head>
 <body>
-<div class="page-wrapper" id="app">
+<div class="page-wrapper" v-cloak id="app">
+
     <div class="tab-panel">
         <div class="tab-item" :class="{active:currentTab===item.tag}" :key="item.tag" v-for="(item,index) of  tabList"
              @click="toggleTag(item.tag)"
@@ -21,23 +23,32 @@
     </div>
     <div class="article-list-panel">
         <ul class="article-list-ul">
-            <li class="article-list-item" @click="jumpUrl(item)" v-for="(item,index) of articleList">
-                <div class="left">
-                    <div class="title">{{item.title}}</div>
-                    <div class="info"><span>{{dayjs(item.publishTime).format('YYYY-MM-DD HH:mm:ss')}}</span><span><i
-                            class="fa fa-eye"
-                            aria-hidden="true"></i>{{item.views}}</span>
+            <van-list
+                    v-model="listLoading"
+                    :finished="listFinished"
+                    finished-text="没有更多了"
+                    @load="onLoadList"
+            >
+                <li class="article-list-item" @click="jumpUrl(item)" v-for="(item,index) of articleList">
+                    <div class="left">
+                        <div class="title">{{item.title}}</div>
+                        <div class="info"><span>{{dayjs(item.publishTime).format('YYYY-MM-DD HH:mm:ss')}}</span><span><i
+                                class="fa fa-eye"
+                                aria-hidden="true"></i>{{item.views}}</span>
+                        </div>
                     </div>
-                </div>
-                <div class="right">
-                    <img :src="item.fileThumb">
-                </div>
-            </li>
+                    <div class="right">
+                        <img :src="item.fileThumb">
+                    </div>
+                </li>
+            </van-list>
+
         </ul>
     </div>
 
 </div>
 <script src="./js/vue/vue.min.js"></script>
+<script src="./js/vant/vant.min.js"></script>
 <script src="./js/axios/axios.min.js"></script>
 <script src="./js/dayjs/dayjs.min.js"></script>
 <script src="./js/api.js"></script>
