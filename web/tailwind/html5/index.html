@@ -8,13 +8,20 @@
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="./js/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./js/vant/index.css"/>
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/index.css">
     <script src="js/swiper/swiper-bundle.min.js"></script>
-
+    <script>
+        var controllerPathPrefix = 'http://ebooking.elong.com/html5';
+    </script>
 </head>
 <body>
 <div class="page-wrapper" v-cloak id="app">
+
+    <van-overlay :z-index="9999" :show="!pageIsOk" @click="pageIsOk = true">
+        <van-loading size="24px" vertical>加载中...</van-loading>
+    </van-overlay>
     <!--<header class="nav-bar-panel">-->
     <!--    <div class="back"><i class="fa fa-angle-left" aria-hidden="true"></i></div>-->
     <!--    <div class="title">首页</div>-->
@@ -27,7 +34,8 @@
                    @click="toggleRecentSearchPanel()"
                    type="text"
                    placeholder="搜索感兴趣的内容">
-            <div v-show="isShowRecentSearchPanel" class="cancel-btn" @click="toggleRecentSearchPanel(false)">取消</div>
+            <div v-show="isShowRecentSearchPanel" class="cancel-btn" @click="toggleRecentSearchPanel(false)">取消
+            </div>
         </div>
         <div class="recent-search-panel" v-if="isShowRecentSearchPanel">
             <div class="recent-search-title">最近搜索</div>
@@ -42,7 +50,8 @@
     <div class="banner-panel">
         <div class="swiper">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" :key="index" v-for="(item,index) of bannerList"><img :src="item.imgSrc"></div>
+                <div class="swiper-slide" @click="jumpUrl(banner.imgLink)" :key="index"
+                     v-for="(banner,index) of bannerList"><img :src="banner.imgSrc"></div>
             </div>
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>
@@ -54,7 +63,7 @@
                 aria-hidden="true"></i></a>
         </header>
         <ul class="article-list-ul">
-            <li class="article-list-item" @click="jumpUrl(item)" v-for="(item,index) of articleList">
+            <li class="article-list-item" @click="jumpArticleDetail(item)" v-for="(item,index) of articleList">
                 <div class="left">
                     <div class="title">{{item.title}}</div>
                     <div class="info"><span>{{dayjs(item.publishTime).format('YYYY-MM-DD HH:mm:ss')}}</span><span><i
@@ -76,7 +85,7 @@
         <ul class="article-grid-ul">
 
             <li class="article-grid-item" v-for="(item,index) of articleGrid">
-                <a :href="'./detail.html?id='+item.id">
+                <a :href="'./detail.html?id='+item.id+'&score='+item.score+'&views='+item.views">
                     <div class="cover"><img :src="item.fileThumb" alt=""></div>
                     <div class="bottom">
                         <div class="title">{{item.title}}</div>
@@ -104,7 +113,9 @@
     </div>
 
     <div class="menu-panel">
-        菜单区域
+        <div class="menu active"><i class="icon shouye"></i>首页</div>
+        <div class="menu"><i class="icon tiwen"></i>提问</div>
+        <div class="menu"><i class="icon wode"></i>我的</div>
     </div>
 </div>
 
@@ -132,6 +143,7 @@
 <!--</script>-->
 
 <script src="./js/vue/vue.min.js"></script>
+<script src="./js/vant/vant.min.js"></script>
 <script src="./js/axios/axios.min.js"></script>
 <script src="./js/dayjs/dayjs.min.js"></script>
 <script src="./js/api.js"></script>

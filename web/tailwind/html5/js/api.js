@@ -8,6 +8,7 @@
             headers: {'content-type': 'application/json'},
         });
 
+
     }
 
     HotelTrainingApi.prototype = {

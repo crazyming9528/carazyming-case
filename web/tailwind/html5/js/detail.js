@@ -6,6 +6,8 @@ var vm = new Vue({
         rateValue: 3,
         detailData: {},
         commentList: [],
+        fileType: '',// mp4  pdf
+        allowComment: false,// 允许评论
     },
     methods: {
         getComment() {
@@ -26,7 +28,20 @@ var vm = new Vue({
             }).then(function (res) {
                 if (res.data.retcode === 0) {
                     _this.detailData = res.data.data;
+                    var url = res.data.data.url;
+                    if (url) {
+                        var type = url.substr(url.lastIndexOf("."));
+                        _this.fileType = type === '.pdf' ? 'pdf' : 'mp4';
+                        if (_this.fileType === 'pdf') {
+                            var pdfh5 = new Pdfh5('#pdf-container', {
+                                pdfurl: url
+                            });
+                        }
+                    }
                     _this.getComment();
+                    setTimeout(function () {
+                        _this.allowComment = true;
+                    }, 10000)
                 }
 
             })
@@ -41,11 +56,11 @@ var vm = new Vue({
         var id = getQueryString("id");
         if (id) {
             this.getDetailInfo(id);
+
         } else {
             console.log('未传递id')
         }
-
-
+        
     }
 });
 

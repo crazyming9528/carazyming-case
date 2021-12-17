@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/detail.css">
+    <link rel="stylesheet" href="css/pdfh5.css">
     <link
             rel="stylesheet"
             href="./js/vant/index.css"
@@ -16,9 +17,13 @@
 </head>
 <body>
 <div class="page-wrapper" v-cloak id="app">
+    <!--    <div id="pdf-container" class="pdf-panel">-->
+    <div v-show="fileType==='pdf'" id="pdf-container" class="pdf-panel">
+    </div>
     <div class="detail-panel">
-        <div class="video-wrapper">
-            <video autoplay controls :src="detailData.url"></video>
+        <div v-show="fileType==='mp4'" class="video-wrapper">
+            <video autoplay controls :poster="detailData.fileThumb"
+                   :src="detailData.url"></video>
         </div>
         <div class="title">{{detailData.title}}</div>
         <div class="desc">
@@ -37,7 +42,7 @@
         <div class="no-comment" v-if="commentList.length===0">
             <div class="bg"></div>
             <p>暂无数据，快来<span class="blue">添加</span>吧！</p>
-            <div class="btn-wrapper">
+            <div class="btn-wrapper" v-show="allowComment">
                 <a :href="'comment.html?id='+detailData.id">
                     <button class="btn">评论</button>
                 </a>
@@ -66,13 +71,19 @@
                 <div class="content">{{comment.content}}</div>
             </li>
         </ul>
-        <a class="write" v-if="commentList.length!==0" :href="'comment.html?id='+detailData.id"><img
+        <a class="write" v-if="commentList.length!==0 && allowComment" :href="'comment.html?id='+detailData.id"><img
                 src="./img/write.png" alt="">评论</a>
     </div>
-    <div class="comment-guide" v-if="commentList.length!==0">您对本期课程满意吗？快说出你的想法吧！</div>
+    <div class="comment-guide" v-if="commentList.length!==0 && allowComment">您对本期课程满意吗？快说出你的想法吧！</div>
 
 
 </div>
+
+<script src="js/pdfh5/pdf.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/pdfh5/pdf.worker.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/pdfh5/jquery-2.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="js/pdfh5/pdfh5.js" type="text/javascript" charset="utf-8"></script>
+
 <script src="./js/vue/vue.min.js"></script>
 <script src="./js/axios/axios.min.js"></script>
 <script src="./js/dayjs/dayjs.min.js"></script>
@@ -80,5 +91,6 @@
 <script src="./js/util.js"></script>
 <script src="./js/vant/vant.min.js"></script>
 <script src="./js/detail.js"></script>
+
 </body>
 </html>

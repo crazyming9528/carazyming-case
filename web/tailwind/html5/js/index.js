@@ -1,8 +1,8 @@
-var controllerPathPrefix = 'http://ebooking.elong.com/html5';
+var api = new HotelTrainingApi(controllerPathPrefix, axios);
 var vm = new Vue({
     el: "#app",
     data: {
-        test: "hello world",
+        pageIsOk: false,
         isShowRecentSearchPanel: false,// 是否显示最近搜索面板
         bannerList: [],
         articleList: [],
@@ -51,14 +51,16 @@ var vm = new Vue({
             }
             console.log('显示最近搜索:', vm.isShowRecentSearchPanel)
         },
-        jumpUrl(item) {
-            var api = new HotelTrainingApi(controllerPathPrefix, axios);
+        jumpArticleDetail(item) {
             api.getArticleDetailInfo({id: item.id, tagType: 1}).finally(function () {
                 window.location.href = item.url;
             })
         },
+        jumpUrl(url) {
+            window.location.href = url;
+        },
         getData() {
-            var api = new HotelTrainingApi(controllerPathPrefix, axios);
+            var _this = this;
             axios.all([api.getHomeBanner(), api.getHomeArticleList(), api.getHomeArticleGrid()]).then(axios.spread(function (banner, articleList, articleGrid) {
                 console.log(banner, articleList, articleGrid);
                 if (banner.status === 200) {
@@ -89,6 +91,8 @@ var vm = new Vue({
                         vm.articleGrid = articleGrid.data.data.list;
                     }
                 }
+
+                _this.pageIsOk = true;
 
 
             }));
