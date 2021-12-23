@@ -14,9 +14,15 @@
             rel="stylesheet"
             href="./js/vant/index.css"
     />
+    <script>
+        var controllerPathPrefix = 'http://ebooking.elong.com/html5';
+    </script>
 </head>
 <body>
 <div class="page-wrapper" v-cloak id="app">
+    <van-overlay :z-index="9999" :show="loading">
+        <van-loading size="24px" vertical>加载中...</van-loading>
+    </van-overlay>
     <!--    <div id="pdf-container" class="pdf-panel">-->
     <div v-show="fileType==='pdf'" id="pdf-container" class="pdf-panel">
     </div>
@@ -31,13 +37,15 @@
         </div>
 
         <div class="info">
-            <span class="grade">4.9分</span>
+            <span class="grade">{{score}}分</span>
             <span><i class="fa fa-eye"
-                     aria-hidden="true"></i>{{detailData.views || 0}}</span>
+                     aria-hidden="true"></i>{{views || 0}}</span>
         </div>
         <div class="time">发布时间 {{dayjs(detailData.publishTime).format('YYYY-MM-DD HH:mm:ss')}}</div>
     </div>
-    <h2 class="comment-title">评论</h2>
+    <h2 class="comment-title">评论
+        <div class="default-comment" v-show="defaultCommentNum>0">已收起{{defaultCommentNum}}条对您帮助不大的评价</div>
+    </h2>
     <div class="comment-panel">
         <div class="no-comment" v-if="commentList.length===0">
             <div class="bg"></div>
@@ -90,6 +98,9 @@
 <script src="./js/api.js"></script>
 <script src="./js/util.js"></script>
 <script src="./js/vant/vant.min.js"></script>
+<script>
+    var api = new HotelTrainingApi(controllerPathPrefix);
+</script>
 <script src="./js/detail.js"></script>
 
 </body>

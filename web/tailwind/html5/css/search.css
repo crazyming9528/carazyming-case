@@ -111,4 +111,12 @@
 .search-result-panel .article-grid-ul .van-list__finished-text {
   width: 100%;
 }
+.search-tips-panel {
+  color: grey;
+  font-size: 14px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 /*# sourceMappingURL=search.css.map */

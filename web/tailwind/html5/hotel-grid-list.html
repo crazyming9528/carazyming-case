@@ -24,7 +24,7 @@
             <h2 class="tag-name">{{tag.text}}</h2>
             <ul class="article-grid-ul">
                 <li class="article-grid-item" v-for="(item,i) of  tag.list">
-                    <a :href="'./detail.html?id='+item.id+'&score='+item.score+'&views='+item.views">
+                    <a :href="'./detail.html?param='+encodeURIParam({id:item.id,score:item.score,views:item.views})">
                         <div class="cover"><img :src="item.fileThumb" alt=""></div>
                         <div class="bottom">
                             <div class="title">{{item.title}}</div>
@@ -51,7 +51,7 @@
     <div class="tab-list-panel" v-else>
         <ul class="article-grid-ul">
             <li class="article-grid-item" v-for="(item,index) of articleGrid">
-                <a :href="'./detail.html?id='+item.id+'&score='+item.score+'&views='+item.views">
+                <a :href="'./detail.html?param='+encodeURIParam({id:item.id,score:item.score,views:item.views})">
                     <div class="cover"><img :src="item.fileThumb" alt=""></div>
                     <div class="bottom">
                         <div class="title">{{item.title}}</div>
@@ -80,6 +80,10 @@
 <script src="./js/axios/axios.min.js"></script>
 <script src="./js/dayjs/dayjs.min.js"></script>
 <script src="./js/api.js"></script>
+<script src="./js/util.js"></script>
+<script>
+    var api = new HotelTrainingApi(controllerPathPrefix);
+</script>
 <script src="./js/hotel-grid-list.js"></script>
 </body>
 </html>

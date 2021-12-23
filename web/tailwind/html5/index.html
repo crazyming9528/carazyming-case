@@ -3,7 +3,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <meta name="referrer" content="same-origin">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>首页</title>
     <!--    <link rel="stylesheet" href="http://ebooking.elong.com/html5/resources/css/weui.min.css">-->
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
@@ -19,7 +19,7 @@
 <body>
 <div class="page-wrapper" v-cloak id="app">
 
-    <van-overlay :z-index="9999" :show="!pageIsOk" @click="pageIsOk = true">
+    <van-overlay :z-index="9999" :show="loading">
         <van-loading size="24px" vertical>加载中...</van-loading>
     </van-overlay>
     <!--<header class="nav-bar-panel">-->
@@ -30,7 +30,7 @@
     <div class="search-panel">
         <div class="search-input-wrapper">
             <i class="fa fa-search" aria-hidden="true"></i>
-            <input class="search-input" v-model="searchText" @keydown.enter="search()"
+            <input class="search-input" v-model="searchText" @keydown.enter="search(true)"
                    @click="toggleRecentSearchPanel()"
                    type="text"
                    placeholder="搜索感兴趣的内容">
@@ -85,7 +85,8 @@
         <ul class="article-grid-ul">
 
             <li class="article-grid-item" v-for="(item,index) of articleGrid">
-                <a :href="'./detail.html?id='+item.id+'&score='+item.score+'&views='+item.views">
+                <!--                <a :href="'./detail.html?id='+item.id+'&score='+item.score+'&views='+item.views">-->
+                <a :href="'./detail.html?param='+encodeURIParam({id:item.id,score:item.score,views:item.views})">
                     <div class="cover"><img :src="item.fileThumb" alt=""></div>
                     <div class="bottom">
                         <div class="title">{{item.title}}</div>
@@ -113,9 +114,9 @@
     </div>
 
     <div class="menu-panel">
-        <div class="menu active"><i class="icon shouye"></i>首页</div>
-        <div class="menu"><i class="icon tiwen"></i>提问</div>
-        <div class="menu"><i class="icon wode"></i>我的</div>
+        <a href="#" class="menu active"><i class="icon shouye"></i>首页</a>
+        <a href="https://ebooking.elong.com/review/appIssue/index" class="menu"><i class="icon tiwen"></i>提问</a>
+        <a href="${controllerPathPrefix}/hotelTraining/userInfo" class="menu"><i class="icon wode"></i>我的</a>
     </div>
 </div>
 
@@ -147,6 +148,10 @@
 <script src="./js/axios/axios.min.js"></script>
 <script src="./js/dayjs/dayjs.min.js"></script>
 <script src="./js/api.js"></script>
+<script src="./js/util.js"></script>
+<script>
+    var api = new HotelTrainingApi(controllerPathPrefix);
+</script>
 <script src="./js/index.js"></script>
 </body>
 </html>

@@ -13,6 +13,9 @@
             rel="stylesheet"
             href="./js/vant/index.css"
     />
+    <script>
+        var controllerPathPrefix = 'http://ebooking.elong.com/html5';
+    </script>
 </head>
 <body>
 <div class="page-wrapper" v-cloak id="app">
@@ -39,7 +42,7 @@
         <div class="tab" :class="{active:currentTabIndex===0}" @click="toggleTab(0)">文章</div>
         <div class="tab" :class="{active:currentTabIndex===1}" @click="toggleTab(1)">课程</div>
     </div>
-    <div class="search-result-panel">
+    <div class="search-result-panel" v-show="isLegitimateText">
         <ul class="article-list-ul" v-if="currentTabIndex === 0">
             <van-pull-refresh v-model="articleListRefreshing" @refresh="onRefreshArticleList">
                 <van-list
@@ -74,13 +77,15 @@
                         @load="onLoadArticleGrid"
                 >
                     <li class="article-grid-item" v-for="(item,index) of articleGrid">
-                        <div class="cover"><img :src="item.fileThumb" alt=""></div>
-                        <div class="bottom">
-                            <div class="title">{{item.title}}</div>
-                            <div class="info"><span class="grade">{{item.score}}分</span><span><i class="fa fa-eye"
-                                                                                                 aria-hidden="true"></i>{{item.views}}</span>
+                        <a :href="'./detail.html?param='+encodeURIParam({id:item.id,score:item.score,views:item.views})">
+                            <div class="cover"><img :src="item.fileThumb" alt=""></div>
+                            <div class="bottom">
+                                <div class="title">{{item.title}}</div>
+                                <div class="info"><span class="grade">{{item.score}}分</span><span><i class="fa fa-eye"
+                                                                                                     aria-hidden="true"></i>{{item.views}}</span>
+                                </div>
                             </div>
-                        </div>
+                        </a>
                     </li>
                     <li class="article-grid-item-placeholder"></li>
                     <li class="article-grid-item-placeholder"></li>
@@ -106,13 +111,19 @@
 
         </ul>
     </div>
+    <div class="search-tips-panel" v-show="!isLegitimateText && searchText !== ''">
+        <p>暂无搜索结果，请重新输入其他关键词</p>
+    </div>
 </div>
 <script src="./js/vue/vue.min.js"></script>
+<script src="./js/vant/vant.min.js"></script>
 <script src="./js/axios/axios.min.js"></script>
 <script src="./js/dayjs/dayjs.min.js"></script>
 <script src="./js/api.js"></script>
 <script src="./js/util.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+<script>
+    var api = new HotelTrainingApi(controllerPathPrefix);
+</script>
 <script src="./js/search.js"></script>
 </body>
 </html>

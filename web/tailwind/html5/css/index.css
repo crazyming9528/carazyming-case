@@ -178,16 +178,17 @@
   left: 0;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
   background-color: white;
   box-shadow: 0px 5px 10px 0px #dddddd;
 }
-.page-wrapper .menu-panel .menu {
+.page-wrapper .menu-panel a.menu {
   font-size: 10px;
   color: #999999;
+  display: block;
 }
-.page-wrapper .menu-panel .menu .icon {
+.page-wrapper .menu-panel a.menu .icon {
   width: 21px;
   height: 21px;
   display: block;
@@ -195,25 +196,25 @@
   background-size: 100% 100%;
   margin-bottom: 3px;
 }
-.page-wrapper .menu-panel .menu .icon.shouye {
+.page-wrapper .menu-panel a.menu .icon.shouye {
   background-image: url('../img/shouye@2x.png');
 }
-.page-wrapper .menu-panel .menu .icon.tiwen {
+.page-wrapper .menu-panel a.menu .icon.tiwen {
   background-image: url('../img/tiwen@2x.png');
 }
-.page-wrapper .menu-panel .menu .icon.wode {
+.page-wrapper .menu-panel a.menu .icon.wode {
   background-image: url('../img/wode@2x.png');
 }
-.page-wrapper .menu-panel .menu.active {
+.page-wrapper .menu-panel a.menu.active {
   color: #5BABEA;
 }
-.page-wrapper .menu-panel .menu.active .icon.shouye {
+.page-wrapper .menu-panel a.menu.active .icon.shouye {
   background-image: url('../img/shouye_b@2x.png');
 }
-.page-wrapper .menu-panel .menu.active .icon.tiwen {
+.page-wrapper .menu-panel a.menu.active .icon.tiwen {
   background-image: url('../img/tiwen_b@2x.png');
 }
-.page-wrapper .menu-panel .menu.active .icon.wode {
+.page-wrapper .menu-panel a.menu.active .icon.wode {
   background-image: url('../img/wode_b@2x.png');
 }
 /*# sourceMappingURL=index.css.map */

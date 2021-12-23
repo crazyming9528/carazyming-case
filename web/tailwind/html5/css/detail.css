@@ -54,6 +54,13 @@
   padding: 0 10px;
   font-size: 17px;
 }
+.comment-title .default-comment {
+  font-size: 12px;
+  color: grey;
+  text-align: center;
+  font-weight: normal;
+  display: inline-block;
+}
 .comment-panel {
   background-color: white;
   padding: 0 15px;

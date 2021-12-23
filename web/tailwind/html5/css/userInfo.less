@@ -1,0 +1,50 @@
+
+.page-wrapper {
+  min-height: 100%;
+
+  .info {
+    padding: 0 15px;
+    background-color: white;
+    box-shadow: 0px 0px 4px 0px rgba(0, 0, 0, 0.1);
+
+    .item {
+      display: flex;
+      height: 55px;
+      align-items: center;
+
+      &:not(:last-child) {
+        border-bottom: 1px solid #eeeeee;
+      }
+
+      .label {
+        min-width: 120px;
+        color: grey;
+        font-size: 14px;
+      }
+
+      .content {
+        flex: 1;
+        word-break: break-all;
+        color: #333333;
+        font-size: 14px;
+      }
+    }
+
+  }
+
+  .btn-wrapper {
+    text-align: center;
+    margin-top: 60px;
+
+    .btn {
+      border: none;
+      min-width: 200px;
+      height: 44px;
+      background: linear-gradient(135deg, #76E8F9 0%, #56A5E7 41%, #1763DF 100%);
+      border-radius: 22px;
+      color: white;
+    }
+
+  }
+
+}

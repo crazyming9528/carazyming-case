@@ -1,8 +1,7 @@
-var api = new HotelTrainingApi(controllerPathPrefix, axios);
 var vm = new Vue({
     el: "#app",
     data: {
-        pageIsOk: false,
+        loading: false,
         isShowRecentSearchPanel: false,// 是否显示最近搜索面板
         bannerList: [],
         articleList: [],
@@ -33,6 +32,10 @@ var vm = new Vue({
             }
         },
         search(saveLog) {
+            if (saveLog) {
+                vm.saveRecentlySearch();
+            }
+
             window.location.href = 'search.html?q=' + vm.searchText;
         },
         selectRecentlySearch(str) {
@@ -70,7 +73,7 @@ var vm = new Vue({
                             var mySwiper = new Swiper('.swiper', {
                                 direction: 'horizontal', // 垂直切换选项
                                 loop: true, // 循环模式选项
-
+                                autoplay: true,
                                 // 如果需要分页器
                                 pagination: {
                                     el: '.swiper-pagination',
@@ -91,8 +94,10 @@ var vm = new Vue({
                         vm.articleGrid = articleGrid.data.data.list;
                     }
                 }
-
-                _this.pageIsOk = true;
+                // _this.pageIsOk = true;
+                setTimeout(function () {
+                    _this.pageIsOk = true;
+                }, 1000)
 
 
             }));

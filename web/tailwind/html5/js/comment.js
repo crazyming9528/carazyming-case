@@ -1,5 +1,3 @@
-var controllerPathPrefix = 'http://ebooking.elong.com/html5';
-
 var vm = new Vue({
     el: "#app",
     data: {

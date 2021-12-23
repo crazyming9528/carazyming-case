@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <meta charset="UTF-8">
+    <meta name="referrer" content="same-origin">
+    <title>用户信息</title>
+    <link rel="stylesheet" href="./css/normalize.css">
+    <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/userInfo.css">
+    <link
+            rel="stylesheet"
+            href="./js/vant/index.css"
+    />
+    <script>
+        var controllerPathPrefix = 'http://ebooking.elong.com/html5';
+    </script>
+</head>
+<body>
+<div class="page-wrapper" v-cloak id="app">
+    <van-overlay :z-index="9999" :show="loading">
+        <van-loading size="24px" vertical>加载中...</van-loading>
+    </van-overlay>
+    <ul class="info">
+        <li class="item">
+            <div class="label">用户名</div>
+            <div class="content">{{userInfo.staffNameEn}}</div>
+        </li>
+        <li class="item">
+            <div class="label">账号类型</div>
+            <div class="content">
+                <span v-show="userInfo.staffLevel ===0">员工级</span>
+                <span v-show="userInfo.staffLevel ===1">管理级</span>
+            </div>
+        </li>
+        <li class="item">
+            <div class="label">真实姓名</div>
+            <div class="content">{{userInfo.staffName}}</div>
+        </li>
+        <li class="item">
+            <div class="label">性别</div>
+            <div class="content">{{userInfo.sex}}</div>
+        </li>
+        <li class="item">
+            <div class="label">邮箱</div>
+            <div class="content">{{userInfo.email}}</div>
+        </li>
+        <li class="item">
+            <div class="label">手机号</div>
+            <div class="content">{{userInfo.mobile}}</div>
+        </li>
+        <li class="item">
+            <div class="label">酒店账号类型</div>
+            <div class="content">
+                <span v-show="userInfo.singleHotelSign ===1">单体</span>
+                <span v-show="userInfo.singleHotelSign === 2">供应商</span>
+                <span v-show="userInfo.singleHotelSign === 3">集团</span>
+            </div>
+        </li>
+        <li class="item">
+            <div class="label">所属部门</div>
+            <div class="content">
+                <span v-if="userInfo.hotelDept === 1">预订部</span>
+                <span v-else-if="userInfo.hotelDept === 2">销售部</span>
+                <span v-else-if="userInfo.hotelDept === 3">前厅部</span>
+                <span v-else-if="userInfo.hotelDept === 4">公关部</span>
+                <span v-else>其他</span>
+            </div>
+        </li>
+    </ul>
+    <div class="btn-wrapper">
+        <button @click="logout" class="btn">退出账号</button>
+    </div>
+</div>
+<script src="./js/vue/vue.min.js"></script>
+<script src="./js/vant/vant.min.js"></script>
+<script src="./js/axios/axios.min.js"></script>
+<script src="./js/dayjs/dayjs.min.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/util.js"></script>
+<script>
+    var api = new HotelTrainingApi(controllerPathPrefix);
+</script>
+<script src="./js/userInfo.js"></script>
+</body>
+</html>

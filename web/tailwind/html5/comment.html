@@ -13,6 +13,9 @@
             rel="stylesheet"
             href="./js/vant/index.css"
     />
+    <script>
+        var controllerPathPrefix = 'http://ebooking.elong.com/html5';
+    </script>
 </head>
 <body>
 <div class="page-wrapper" v-cloak id="app">
@@ -58,6 +61,9 @@
 <script src="./js/api.js"></script>
 <script src="./js/util.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vant@2.12/lib/vant.min.js"></script>
+<script>
+    var api = new HotelTrainingApi(controllerPathPrefix);
+</script>
 <script src="./js/comment.js"></script>
 </body>
 </html>
