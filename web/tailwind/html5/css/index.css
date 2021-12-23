@@ -196,25 +196,7 @@
   background-size: 100% 100%;
   margin-bottom: 3px;
 }
-.page-wrapper .menu-panel a.menu .icon.shouye {
-  background-image: url('../img/shouye@2x.png');
-}
-.page-wrapper .menu-panel a.menu .icon.tiwen {
-  background-image: url('../img/tiwen@2x.png');
-}
-.page-wrapper .menu-panel a.menu .icon.wode {
-  background-image: url('../img/wode@2x.png');
-}
 .page-wrapper .menu-panel a.menu.active {
   color: #5BABEA;
-}
-.page-wrapper .menu-panel a.menu.active .icon.shouye {
-  background-image: url('../img/shouye_b@2x.png');
-}
-.page-wrapper .menu-panel a.menu.active .icon.tiwen {
-  background-image: url('../img/tiwen_b@2x.png');
-}
-.page-wrapper .menu-panel a.menu.active .icon.wode {
-  background-image: url('../img/wode_b@2x.png');
 }
 /*# sourceMappingURL=index.css.map */

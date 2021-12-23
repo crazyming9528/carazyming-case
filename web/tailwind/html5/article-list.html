@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/component.css">
+
     <link rel="stylesheet" href="css/article-list.css">
     <link rel="stylesheet" href="./js/vant/index.css">
 </head>
@@ -22,25 +24,15 @@
         </div>
     </div>
     <div class="article-list-panel">
-        <ul class="article-list-ul">
+        <ul class="ebkh5-article-list-ul">
             <van-list
                     v-model="listLoading"
                     :finished="listFinished"
                     finished-text="没有更多了"
                     @load="onLoadList"
             >
-                <li class="article-list-item" @click="jumpUrl(item)" v-for="(item,index) of articleList">
-                    <div class="left">
-                        <div class="title">{{item.title}}</div>
-                        <div class="info"><span>{{dayjs(item.publishTime).format('YYYY-MM-DD HH:mm:ss')}}</span><span><i
-                                class="fa fa-eye"
-                                aria-hidden="true"></i>{{item.views}}</span>
-                        </div>
-                    </div>
-                    <div class="right">
-                        <img :src="item.fileThumb">
-                    </div>
-                </li>
+                <ebkh5-article-list-item :item="item" :key="index"
+                                         v-for="(item,index) of articleList"></ebkh5-article-list-item>
             </van-list>
 
         </ul>
@@ -52,6 +44,8 @@
 <script src="./js/axios/axios.min.js"></script>
 <script src="./js/dayjs/dayjs.min.js"></script>
 <script src="./js/api.js"></script>
+<script src="./js/util.js"></script>
+<script src="./js/component.js"></script>
 <script>
     var api = new HotelTrainingApi(controllerPathPrefix);
 </script>

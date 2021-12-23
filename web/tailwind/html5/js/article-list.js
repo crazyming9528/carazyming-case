@@ -14,11 +14,11 @@ var vm = new Vue({
         }
     },
     methods: {
-        toggleTag(newTag) {
+        toggleTag: function (newTag) {
             this.currentTab = newTag;
             this.refreshList();
         },
-        getTag() {
+        getTag: function () {
             var api = new HotelTrainingApi(controllerPathPrefix, axios);
             var _this = this;
             api.getArticleTab(1).then(function (res) {
@@ -31,7 +31,7 @@ var vm = new Vue({
                 }
             })
         },
-        refreshList() {
+        refreshList: function () {
             this.listLoading = false;
             this.listFinished = false;
             this.articleList = [];
@@ -39,7 +39,7 @@ var vm = new Vue({
             this.pageData.pageSize = 10;
             this.onLoadList();
         },
-        getList() {
+        getList: function () {
             var _this = this;
             return new Promise(function (resolve, reject) {
                 var data = {
@@ -70,7 +70,7 @@ var vm = new Vue({
             })
 
         },
-        onLoadList() {
+        onLoadList: function () {
             this.pageData.page++;
             var _this
                 = this;
@@ -86,16 +86,16 @@ var vm = new Vue({
             })
 
         },
-        jumpUrl(item) {
+        jumpUrl: function (item) {
             api.getArticleDetailInfo({id: item.id, tagType: 1}).finally(function () {
                 window.location.href = item.url;
             })
         }
 
     },
-    created() {
+    created: function () {
     },
-    mounted() {
+    mounted: function () {
         this.getTag();
     }
 });

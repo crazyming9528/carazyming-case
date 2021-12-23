@@ -25,12 +25,7 @@ var vm = new Vue({
         articleGrid: []// 课程网格
     },
     methods: {
-        jumpUrl(item) {
-            api.getArticleDetailInfo({id: item.id, tagType: 1}).finally(function () {
-                window.location.href = item.url;
-            })
-        },
-        getArticleList() {
+        getArticleList: function () {
             var _this = this;
             return new Promise(function (resolve, reject) {
                 api.searchArticle({
@@ -56,7 +51,7 @@ var vm = new Vue({
             })
 
         },
-        onRefreshArticleList() {
+        onRefreshArticleList: function () {
             this.articleListPage.page = 1;
             this.articleListPage.pageSize = 10;
             this.articleList = [];
@@ -66,7 +61,7 @@ var vm = new Vue({
             });
 
         },
-        onLoadArticleList() {
+        onLoadArticleList: function () {
             this.articleListPage.page++;
             var _this = this;
             this.getArticleList().then(function (data) {
@@ -81,7 +76,7 @@ var vm = new Vue({
             })
 
         },
-        getArticleGrid() {
+        getArticleGrid: function () {
             var _this = this;
             return new Promise(function (resolve, reject) {
                 api.searchCourse({
@@ -107,7 +102,7 @@ var vm = new Vue({
             })
 
         },
-        onRefreshArticleGrid() {
+        onRefreshArticleGrid: function () {
             this.articleGridPage.page = 1;
             this.articleGridPage.pageSize = 10;
             this.articleGrid = [];
@@ -117,7 +112,7 @@ var vm = new Vue({
             });
 
         },
-        onLoadArticleGrid() {
+        onLoadArticleGrid: function () {
             this.articleGridPage.page++;
             var _this = this;
             this.getArticleGrid().then(function (data) {
@@ -135,7 +130,7 @@ var vm = new Vue({
         },
 
         // 保存最近搜索
-        saveRecentlySearch() {
+        saveRecentlySearch: function () {
             var str = this.searchText;
             if (window.localStorage) {
                 var rs = localStorage.getItem('recentlySearch');
@@ -158,17 +153,17 @@ var vm = new Vue({
                 localStorage.setItem("recentlySearch", JSON.stringify(res));
             }
         },
-        getRecentlySearch() {
+        getRecentlySearch: function () {
             if (window.localStorage) {
                 var rs = localStorage.getItem('recentlySearch');
                 this.recentlySearch = rs ? JSON.parse(rs).reverse() : [];
             }
         },
-        toggleTab(index) {
+        toggleTab: function (index) {
             // this.currentTabIndex = index;
             window.location.replace("search.html?q=" + this.searchText + "&tab=" + index);
         },
-        search(from) {
+        search: function (from) {
             this.checkSearchText(this.searchText);
             if (this.isLegitimateText) {
 
@@ -185,12 +180,12 @@ var vm = new Vue({
             }
 
         },
-        selectRecentlySearch(str) {
+        selectRecentlySearch: function (str) {
             vm.searchText = str;
             vm.toggleRecentSearchPanel(false);
             vm.search();
         },
-        toggleRecentSearchPanel(bool) {
+        toggleRecentSearchPanel: function (bool) {
             if (typeof bool == "boolean") {
                 vm.isShowRecentSearchPanel = bool;
             } else {
@@ -201,7 +196,7 @@ var vm = new Vue({
             }
             console.log('显示最近搜索:', vm.isShowRecentSearchPanel)
         },
-        checkSearchText(text) {
+        checkSearchText: function (text) {
             // 字母
             var englishRegExp = /^[a-zA-Z]+$/;
             // 中文
@@ -210,14 +205,14 @@ var vm = new Vue({
         }
     },
 
-    created() {
+    created: function () {
 
         var query = getQueryString("q");
         this.checkSearchText(query);
         this.searchText = query;
         this.currentTabIndex = Number(getQueryString("tab")) || 0;
     },
-    mounted() {
+    mounted: function () {
         // this.initSearch();
 
     }

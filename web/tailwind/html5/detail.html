@@ -4,10 +4,11 @@
     <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
     <meta charset="UTF-8">
     <meta name="referrer" content="same-origin">
-    <title>文章推荐</title>
+    <title>详情</title>
     <link rel="stylesheet" href="./css/normalize.css">
     <link rel="stylesheet" href="font-awesome-4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/component.css">
     <link rel="stylesheet" href="css/detail.css">
     <link rel="stylesheet" href="css/pdfh5.css">
     <link
@@ -48,10 +49,10 @@
     </h2>
     <div class="comment-panel">
         <div class="no-comment" v-if="commentList.length===0">
-            <div class="bg"></div>
+            <div class="bg" style="background-image: url('${resourcesPrefix}/images/no-comment.png')"></div>
             <p>暂无数据，快来<span class="blue">添加</span>吧！</p>
             <div class="btn-wrapper" v-show="allowComment">
-                <a :href="'comment.html?id='+detailData.id">
+                <a :href="'${controllerPathPrefix}/hotelTraining/comment?id='+detailData.id">
                     <button class="btn">评论</button>
                 </a>
             </div>
@@ -60,7 +61,8 @@
         <ul class="comment-list-ul">
             <li class="comment-item" :key="index" v-for="(comment,index) of commentList">
                 <div class="info">
-                    <span>{{comment.staffNameEn}}</span><span>{{dayjs(comment.timestamp).format('YYYY-MM-DD HH:mm:ss')}}</span>
+                    <span class="name">{{comment.staffNameEn}}</span><span
+                        class="time">{{dayjs(comment.timestamp).format('YYYY-MM-DD HH:mm:ss')}}</span>
                 </div>
                 <div class="score-row">
                     <div class="score">{{comment.score}}</div>
@@ -79,8 +81,9 @@
                 <div class="content">{{comment.content}}</div>
             </li>
         </ul>
-        <a class="write" v-if="commentList.length!==0 && allowComment" :href="'comment.html?id='+detailData.id"><img
-                src="./img/write.png" alt="">评论</a>
+        <a class="write" v-if="commentList.length!==0 && allowComment"
+           :href="'${controllerPathPrefix}/hotelTraining/comment?id='+detailData.id"><img
+                src="${resourcesPrefix}/images/write.png" alt="">评论</a>
     </div>
     <div class="comment-guide" v-if="commentList.length!==0 && allowComment">您对本期课程满意吗？快说出你的想法吧！</div>
 

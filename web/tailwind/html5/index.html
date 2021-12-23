@@ -10,7 +10,34 @@
     <link rel="stylesheet" href="./js/swiper/swiper-bundle.min.css">
     <link rel="stylesheet" href="./js/vant/index.css"/>
     <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/component.css">
     <link rel="stylesheet" href="css/index.css">
+    <style>
+        .page-wrapper .menu-panel a.menu .icon.shouye {
+            background-image: url('${resourcesPrefix}/images/shouye@2x.png');
+        }
+
+        .page-wrapper .menu-panel a.menu .icon.tiwen {
+            background-image: url('${resourcesPrefix}/images/tiwen@2x.png');
+        }
+
+        .page-wrapper .menu-panel a.menu .icon.wode {
+            background-image: url('${resourcesPrefix}/images/wode@2x.png');
+        }
+
+
+        .page-wrapper .menu-panel a.menu.active .icon.shouye {
+            background-image: url('${resourcesPrefix}/images/shouye_b@2x.png');
+        }
+
+        .page-wrapper .menu-panel a.menu.active .icon.tiwen {
+            background-image: url('${resourcesPrefix}/images/tiwen_b@2x.png');
+        }
+
+        .page-wrapper .menu-panel a.menu.active .icon.wode {
+            background-image: url('${resourcesPrefix}/images/wode_b@2x.png');
+        }
+    </style>
     <script src="js/swiper/swiper-bundle.min.js"></script>
     <script>
         var controllerPathPrefix = 'http://ebooking.elong.com/html5';
@@ -58,44 +85,26 @@
         </div>
     </div>
     <div class="article-list-panel">
-        <header class="top"><h2 class="title">热门文章</h2><a class="more" href="./article-list.html">更多<i
+        <header class="top"><h2 class="title">热门文章</h2><a class="more"
+                                                          href="${controllerPathPrefix}/hotelTraining/article-list">更多<i
                 class="fa fa-angle-right"
                 aria-hidden="true"></i></a>
         </header>
-        <ul class="article-list-ul">
-            <li class="article-list-item" @click="jumpArticleDetail(item)" v-for="(item,index) of articleList">
-                <div class="left">
-                    <div class="title">{{item.title}}</div>
-                    <div class="info"><span>{{dayjs(item.publishTime).format('YYYY-MM-DD HH:mm:ss')}}</span><span><i
-                            class="fa fa-eye"
-                            aria-hidden="true"></i>{{item.views}}</span>
-                    </div>
-                </div>
-                <div class="right">
-                    <img :src="item.fileThumb">
-                </div>
-            </li>
+        <ul class="ebkh5-article-list-ul">
+            <ebkh5-article-list-item :item="item" :key="index"
+                                     v-for="(item,index) of articleList"></ebkh5-article-list-item>
+
         </ul>
     </div>
     <div class="article-grid-panel">
-        <header class="top"><h2 class="title">商家必学</h2><a class="more" href="./hotel-grid-list.html">更多<i
+        <header class="top"><h2 class="title">商家必学</h2><a class="more"
+                                                          href="${controllerPathPrefix}/hotelTraining/hotel-grid-list">更多<i
                 class="fa fa-angle-right"
                 aria-hidden="true"></i></a>
         </header>
-        <ul class="article-grid-ul">
-
-            <li class="article-grid-item" v-for="(item,index) of articleGrid">
-                <!--                <a :href="'./detail.html?id='+item.id+'&score='+item.score+'&views='+item.views">-->
-                <a :href="'./detail.html?param='+encodeURIParam({id:item.id,score:item.score,views:item.views})">
-                    <div class="cover"><img :src="item.fileThumb" alt=""></div>
-                    <div class="bottom">
-                        <div class="title">{{item.title}}</div>
-                        <div class="info"><span class="grade">{{item.score}}分</span><span><i class="fa fa-eye"
-                                                                                             aria-hidden="true"></i>{{item.views}}</span>
-                        </div>
-                    </div>
-                </a>
-            </li>
+        <ul class="ebkh5-article-grid-ul">
+            <ebkh5-article-grid-item :item="item" :key="index"
+                                     v-for="(item,index) of articleGrid"></ebkh5-article-grid-item>
             <li class="article-grid-item-placeholder"></li>
             <li class="article-grid-item-placeholder"></li>
             <li class="article-grid-item-placeholder"></li>
@@ -110,45 +119,22 @@
     </div>
 
     <div class="bottom-banner-panel">
-        <img src="./img/bottom_banner.png" alt="">
+        <img src="${resourcesPrefix}/images//bottom_banner.png" alt="">
     </div>
 
     <div class="menu-panel">
         <a href="#" class="menu active"><i class="icon shouye"></i>首页</a>
-        <a href="https://ebooking.elong.com/review/appIssue/index" class="menu"><i class="icon tiwen"></i>提问</a>
+        <a href="${contextPath}/review/appIssue/index" class="menu"><i class="icon tiwen"></i>提问</a>
         <a href="${controllerPathPrefix}/hotelTraining/userInfo" class="menu"><i class="icon wode"></i>我的</a>
     </div>
 </div>
-
-<!--<script>-->
-<!--    var mySwiper = new Swiper('.swiper', {-->
-<!--        direction: 'horizontal', // 垂直切换选项-->
-<!--        loop: true, // 循环模式选项-->
-
-<!--        // 如果需要分页器-->
-<!--        pagination: {-->
-<!--            el: '.swiper-pagination',-->
-<!--        },-->
-
-<!--        // 如果需要前进后退按钮-->
-<!--        navigation: {-->
-<!--            nextEl: '.swiper-button-next',-->
-<!--            prevEl: '.swiper-button-prev',-->
-<!--        },-->
-
-<!--        // 如果需要滚动条-->
-<!--        scrollbar: {-->
-<!--            el: '.swiper-scrollbar',-->
-<!--        },-->
-<!--    })-->
-<!--</script>-->
-
 <script src="./js/vue/vue.min.js"></script>
 <script src="./js/vant/vant.min.js"></script>
 <script src="./js/axios/axios.min.js"></script>
 <script src="./js/dayjs/dayjs.min.js"></script>
 <script src="./js/api.js"></script>
 <script src="./js/util.js"></script>
+<script src="./js/component.js"></script>
 <script>
     var api = new HotelTrainingApi(controllerPathPrefix);
 </script>

@@ -11,7 +11,7 @@ var vm = new Vue({
     },
     methods: {
         // 保存最近搜索
-        saveRecentlySearch() {
+        saveRecentlySearch: function () {
             var str = this.searchText;
             if (window.localStorage) {
                 var rs = localStorage.getItem('recentlySearch');
@@ -25,25 +25,25 @@ var vm = new Vue({
                 localStorage.setItem("recentlySearch", JSON.stringify(rsArray));
             }
         },
-        getRecentlySearch() {
+        getRecentlySearch: function () {
             if (window.localStorage) {
                 var rs = localStorage.getItem('recentlySearch');
                 this.recentlySearch = rs ? JSON.parse(rs).reverse() : [];
             }
         },
-        search(saveLog) {
+        search: function (saveLog) {
             if (saveLog) {
                 vm.saveRecentlySearch();
             }
 
             window.location.href = 'search.html?q=' + vm.searchText;
         },
-        selectRecentlySearch(str) {
+        selectRecentlySearch: function (str) {
             vm.searchText = str;
             vm.toggleRecentSearchPanel(false);
             vm.search();
         },
-        toggleRecentSearchPanel(bool) {
+        toggleRecentSearchPanel: function (bool) {
             if (typeof bool == "boolean") {
                 vm.isShowRecentSearchPanel = bool;
             } else {
@@ -54,15 +54,15 @@ var vm = new Vue({
             }
             console.log('显示最近搜索:', vm.isShowRecentSearchPanel)
         },
-        jumpArticleDetail(item) {
+        jumpArticleDetail: function (item) {
             api.getArticleDetailInfo({id: item.id, tagType: 1}).finally(function () {
                 window.location.href = item.url;
             })
         },
-        jumpUrl(url) {
+        jumpUrl: function (url) {
             window.location.href = url;
         },
-        getData() {
+        getData: function () {
             var _this = this;
             axios.all([api.getHomeBanner(), api.getHomeArticleList(), api.getHomeArticleGrid()]).then(axios.spread(function (banner, articleList, articleGrid) {
                 console.log(banner, articleList, articleGrid);
@@ -95,19 +95,16 @@ var vm = new Vue({
                     }
                 }
                 // _this.pageIsOk = true;
-                setTimeout(function () {
-                    _this.pageIsOk = true;
-                }, 1000)
 
 
             }));
         }
 
     },
-    created() {
+    created: function () {
         console.log('hello world');
     },
-    mounted() {
+    mounted: function () {
         console.log('mount');
         console.log(this);
         this.getData();

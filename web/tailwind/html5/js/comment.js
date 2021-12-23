@@ -5,7 +5,7 @@ var vm = new Vue({
         content: ""
     },
     methods: {
-        getRateText(value) {
+        getRateText: function (value) {
             switch (value) {
                 case 0:
                     return '';
@@ -21,7 +21,7 @@ var vm = new Vue({
                     return '非常好';
             }
         },
-        submitComment() {
+        submitComment: function () {
             var data = {
                 hotelTrainId: getQueryString('id'),
                 score: this.score,
@@ -35,9 +35,9 @@ var vm = new Vue({
             })
         }
     },
-    created() {
+    created: function () {
     },
-    mounted() {
+    mounted: function () {
 
     }
 });

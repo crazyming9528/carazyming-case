@@ -8,7 +8,7 @@ var vm = new Vue({
         userInfo: {}
     },
     methods: {
-        getUserInfo() {
+        getUserInfo: function () {
             var _this = this;
             api.userInfo().then(function (res) {
                 if (res.data.retcode === 0) {
@@ -19,15 +19,15 @@ var vm = new Vue({
             })
 
         },
-        logout() {
+        logout: function () {
             api.logout().finally(
                 window.location.href = 'http://ebooking.elong.com:80/html5/authentication/login'
             )
         }
     },
-    created() {
+    created: function () {
     },
-    mounted() {
+    mounted: function () {
 
         this.getUserInfo();
 

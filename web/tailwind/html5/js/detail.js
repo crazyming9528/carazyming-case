@@ -12,18 +12,19 @@ var vm = new Vue({
         defaultCommentNum: 0,// 已折叠的评论数量
     },
     methods: {
-        getComment() {
+        getComment: function () {
+            var _this = this;
             api.getCommentList({page: 1, pageSize: 10, id: this.detailData.id}).then(
                 function (commentRes) {
                     if (commentRes.data.retcode === 0) {
-                        this.commentList = res.data.list;
-                        this.defaultNum = res.data.defaultNum || 0;
+                        _this.commentList = commentRes.data.data.list || [];
+                        _this.defaultCommentNum = commentRes.data.data.defaultNum || 0;
                     }
 
                 }
             )
         },
-        getDetailInfo(id) {
+        getDetailInfo: function (id) {
             var _this = this;
             api.getArticleDetailInfo({
                 id: id,
@@ -51,7 +52,7 @@ var vm = new Vue({
 
 
         },
-        autoComment() {
+        autoComment: function () {
             var data = {
                 hotelTrainId: this.detailData.id,
                 score: 5,
@@ -66,10 +67,10 @@ var vm = new Vue({
         }
 
     },
-    created() {
+    created: function () {
         // this.back();
     },
-    mounted() {
+    mounted: function () {
         var param = getQueryString('param');
         var paramData = decodeURIParam(param);
         if (paramData.id) {
