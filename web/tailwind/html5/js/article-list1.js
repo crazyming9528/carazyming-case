@@ -10,7 +10,7 @@ var vm = new Vue({
         listFinished: false,// list组件   是否加载完成
         showList: false,
         pageData: {
-            page: 0,
+            page: 1,
             pageSize: 10,
         }
     },
@@ -19,10 +19,9 @@ var vm = new Vue({
             this.currentTab = newTag;
             this.refreshList();
         },
-        changeTag: function (name, title) {
-            this.tabList = [];
-
-            console.log(name, title);
+        changeTab: function (name, title) {
+            this.currentTab = name;
+            this.refreshList();
         },
         getTag: function () {
             var api = new HotelTrainingApi(controllerPathPrefix, axios);
@@ -33,7 +32,7 @@ var vm = new Vue({
                     Object.keys(data).forEach(function (key) {
                         _this.tabList.push({tag: key, text: data[key]});
                     })
-
+                    _this.onLoadList(true);
                 }
             })
         },
@@ -41,9 +40,9 @@ var vm = new Vue({
             this.listLoading = false;
             this.listFinished = false;
             this.articleList = [];
-            this.pageData.page = 0;
+            this.pageData.page = 1;
             this.pageData.pageSize = 10;
-            this.onLoadList();
+            this.onLoadList(true);
         },
         getList: function () {
             var _this = this;
@@ -76,8 +75,11 @@ var vm = new Vue({
             })
 
         },
-        onLoadList: function () {
-            this.pageData.page++;
+        onLoadList: function (first) {
+
+            if (!first) {
+                this.pageData.page++;
+            }
             var _this
                 = this;
             this.getList().then(function (data) {

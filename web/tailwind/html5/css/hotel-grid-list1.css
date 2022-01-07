@@ -1,0 +1,27 @@
+.page-wrapper {
+  background-color: #F4F4F4;
+  height: 100%;
+  overflow-y: auto;
+}
+.page-wrapper .van-tabs__wrap {
+  background-color: white;
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.1);
+}
+.page-wrapper .van-tabs__wrap .van-tabs__line {
+  background-color: #1EABF1;
+  background: linear-gradient(143deg, #76E8F9 0%, #56A5E7 54%, #0E52C0 100%) !important;
+}
+.page-wrapper .index-panel {
+  flex: 1;
+  overflow: auto;
+}
+.page-wrapper .index-panel .tag-wrapper h2.tag-name {
+  margin: 15px 0;
+  padding: 0 10px;
+  color: #333333;
+  font-size: 17px;
+}
+.page-wrapper .ebkh5-article-grid-item {
+  background-color: white;
+}
+/*# sourceMappingURL=hotel-grid-list1.css.map */

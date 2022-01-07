@@ -1,9 +1,5 @@
 .page-wrapper {
   background-color: white;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  height: 100%;
 }
 .tab-panel {
   height: 45px;
@@ -32,7 +28,6 @@
   left: 50%;
   bottom: -5px;
   transform: translateX(-50%);
-  transition: all 0.5s;
 }
 .tab-panel .tab-item.active {
   color: #1EABF1;
@@ -44,6 +39,7 @@
 .article-list-panel {
   padding: 10px;
   background-color: white;
+  margin-bottom: 15px;
   flex: 1;
   overflow: auto;
 }

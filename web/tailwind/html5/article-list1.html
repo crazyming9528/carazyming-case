@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/component.css">
 
-    <link rel="stylesheet" href="css/article-list.css">
+    <link rel="stylesheet" href="css/article-list1.css">
     <link rel="stylesheet" href="./js/vant/index.css">
     <script>
         var controllerPathPrefix = 'http://ebooking.elong.com/html5';
@@ -19,28 +19,27 @@
 <body>
 <div class="page-wrapper" v-cloak id="app">
 
-    <div class="tab-panel">
-        <div class="tab-item" :class="{active:Number(currentTab)===Number(item.tag)}" :key="item.tag"
-             v-for="(item,index) of  tabList"
-             @click="toggleTag(item.tag)"
-        >
-            {{item.text}}
-        </div>
-    </div>
-    <div class="article-list-panel">
-        <ul class="ebkh5-article-list-ul">
-            <van-list
-                    v-model="listLoading"
-                    :finished="listFinished"
-                    finished-text="没有更多了"
-                    @load="onLoadList"
-            >
-                <ebkh5-article-list-item :item="item" :key="index"
-                                         v-for="(item,index) of articleList"></ebkh5-article-list-item>
-            </van-list>
+    <van-tabs @change="changeTab" title-active-color="#1EABF1" title-inactive-color="#999999" swipeable
+              v-model="active">
+        <van-tab v-for="(item,index) of tabList" :title="item.text" :name="item.tag">
+            <div class="article-list-panel">
+                <ul class="ebkh5-article-list-ul">
+                    <van-list
+                            :immediate-check="false"
+                            v-model="listLoading"
+                            :finished="listFinished"
+                            finished-text="没有更多了"
+                            @load="onLoadList"
+                    >
+                        <ebkh5-article-list-item :item="item" :key="index"
+                                                 v-for="(item,index) of articleList"></ebkh5-article-list-item>
+                    </van-list>
 
-        </ul>
-    </div>
+                </ul>
+            </div>
+        </van-tab>
+
+    </van-tabs>
 
 
 </div>
@@ -55,6 +54,6 @@
 <script>
     var api = new HotelTrainingApi(controllerPathPrefix);
 </script>
-<script src="./js/article-list.js"></script>
+<script src="./js/article-list1.js"></script>
 </body>
 </html>

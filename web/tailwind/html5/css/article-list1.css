@@ -1,0 +1,8 @@
+.page-wrapper {
+  background-color: white;
+}
+.page-wrapper .van-tabs__line {
+  background-color: #1EABF1;
+  background: linear-gradient(143deg, #76E8F9 0%, #56A5E7 54%, #0E52C0 100%) !important;
+}
+/*# sourceMappingURL=article-list1.css.map */
