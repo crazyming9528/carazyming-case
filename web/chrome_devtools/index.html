@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div id="app">
+    <button @click="test">test</button>
+    <ul>
+        <li v-for="(item,index) of bannerList">{{item}}</li>
+    </ul>
+
+</div>
+<script src="../_static/vue/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            loading: false,
+            isShowRecentSearchPanel: false,// 是否显示最近搜索面板
+            bannerList: [],
+        },
+        methods: {
+            test: function () {
+                console.log("代码执行什么")
+                for (let i = 0; i < 10000; i++) {
+                    this.bannerList.push(new Date().getMilliseconds() + "-" + i);
+                }
+
+            }
+        },
+        created: function () {
+
+        },
+        mounted: function () {
+
+        }
+    });
+
+
+</script>
+
+</body>
+</html>

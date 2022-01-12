@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <title>Title</title>
+    <style>
+        .search-panel {
+            padding: 0 10px;
+            background-color: white;
+            position: relative;
+        }
+
+        .search-panel .search-input-wrapper {
+            position: relative;
+            height: 45px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-panel .search-input-wrapper .search-input {
+            color: #666666;
+            border-radius: 18px;
+            border: none;
+            background-color: #F4F4F4 !important;
+            height: 36px;
+            line-height: 36px;
+            width: 100%;
+            font-size: 14px;
+            padding: 0 40px;
+        }
+
+        .search-panel .search-input-wrapper .cancel-btn {
+            width: 60px;
+            color: #1EABF1;
+            text-align: center;
+            font-size: 14px;
+            padding-left: 10px;
+        }
+
+        .search-panel .fa-search {
+            font-size: 14px;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 20px;
+            color: #b2b2b2;
+            font-weight: lighter;
+        }
+
+        .search-panel .recent-search-panel {
+            width: 100%;
+            height: calc(100vh - 45px);
+            background-color: #F4F4F4;
+            position: absolute;
+            left: 0;
+            top: 45px;
+            z-index: 10000;
+        }
+
+        .search-panel .recent-search-panel .recent-search-title {
+            font-size: 12px;
+            padding: 5px 10px;
+        }
+
+        .search-panel .recent-search-panel .recent-search-ul {
+            min-width: 0;
+        }
+
+        .search-panel .recent-search-panel .recent-search-ul .recent-search-item {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+            height: 50px;
+            color: #666666;
+            font-size: 14px;
+            box-sizing: border-box;
+            background-color: white;
+        }
+
+        .search-panel .recent-search-panel .recent-search-ul .recent-search-item:not(:last-child) {
+            border-bottom: 1px solid #F4F4F4;
+        }
+
+
+    </style>
+</head>
+<body>
+测试输入框
+<div class="search-panel">
+    <div class="search-input-wrapper">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <form action="" style="width: 100%">
+            <input class="search-input"
+                   type="search"
+                   placeholder="搜索感兴趣的内容">
+        </form>
+        <div class="cancel-btn">取消</div>
+    </div>
+</div>
+
+</body>
+</html>
