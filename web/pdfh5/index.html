@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+  <link rel="stylesheet" href="./pdfh5.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+        .pdf-panel{
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+<div id="pdf-container" class="pdf-panel">
+</div>
+<script src="../_static/js/jquery.min.js"></script>
+<script src="./pdf.js"></script>
+<script src="./pdf.worker.js"></script>
+<script src="./pdfh5.js"></script>
+<script>
+
+  function generatePDf(){
+    var pdfh5 = new Pdfh5('#pdf-container', {
+      pdfurl: "http://case.crazyming.com/web/pdfh5/wz.pdf",
+    });
+  }
+
+  generatePDf();
+</script>
+</body>
+</html>
