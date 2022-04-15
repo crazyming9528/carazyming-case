@@ -33,3 +33,11 @@ jobs:
          host: ${{ secrets.HK_HOST }}
          username: ${{ secrets.HK_USER }}
          password: ${{ secrets.HK_PW }}
+         
+      - name: Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_NAME }}
+          password: ${{ secrets.FTP_PW }}
+          exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
