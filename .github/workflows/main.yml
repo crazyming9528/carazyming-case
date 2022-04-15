@@ -26,12 +26,10 @@ jobs:
       - name: Get latest code
         uses: actions/checkout@v2
 
-      - name: copy file via ssh password
-        uses: appleboy/scp-action@master
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@release
         with:
-          host: ${{ secrets.HK_HOST }}
-          username: ${{ secrets.HK_USER }}
-          password: ${{ secrets.HK_PW }}
-          port: ${{ secrets.HK_PORT }}
-          source: "/"
-          target: ${{ secrets.HK_PATH }}
+         command: ls -a
+         host: ${{ secrets.HK_HOST }}
+         username: ${{ secrets.HK_USER }}
+         password: ${{ secrets.HK_PW }}
