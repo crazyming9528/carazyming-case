@@ -26,10 +26,12 @@ jobs:
       - name: Get latest code
         uses: actions/checkout@v2
 
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
         with:
-          server: case.crazyming.com
-          username: ${{ secrets.FTP_NAME }}
-          password: ${{ secrets.FTP_PW }}
-          exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
+          host: ${{ secrets.HK_HOST }}
+          username: ${{ secrets.HK_USER }}
+          password: ${{ secrets.HK_PW }}
+          port: ${{ secrets.HK_PORT }}
+          source: "/"
+          target: ${{ secrets.HK_PATH }}
