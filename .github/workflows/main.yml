@@ -41,3 +41,11 @@ jobs:
           username: ${{ secrets.FTP_NAME }}
           password: ${{ secrets.FTP_PW }}
           exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
+      - name: Copy folder content recursively to remote
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: /
+          remote: www/wwwroot/case.crazyming.com
+          host: ${{ secrets.HK_HOST }}
+          username: ${{ secrets.HK_USER }}
+          password: ${{ secrets.HK_PW }}
