@@ -37,7 +37,7 @@ jobs:
       - name: Copy folder content recursively to remote
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: case
+          local: /*
           remote: www/wwwroot/case.crazyming.com
           host: ${{ secrets.HK_HOST }}
           username: ${{ secrets.HK_USER }}
