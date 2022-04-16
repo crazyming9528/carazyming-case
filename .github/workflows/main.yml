@@ -26,21 +26,21 @@ jobs:
       - name: Get latest code
         uses: actions/checkout@v2
 
-      - name: ls -a via ssh
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-         command: ls -a
-         host: ${{ secrets.HK_HOST }}
-         username: ${{ secrets.HK_USER }}
-         password: ${{ secrets.HK_PW }}
-      - name: Syncfiles
-        uses: SamKirkland/FTP-Deploy-Action@4.2.0
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_NAME }}
-          password: ${{ secrets.FTP_PW }}
-          local-dir: /home/runner/work/carazyming-case/carazyming-case/
-          exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
+#       - name: ls -a via ssh
+#         uses: garygrossgarten/github-action-ssh@release
+#         with:
+#          command: ls -a
+#          host: ${{ secrets.HK_HOST }}
+#          username: ${{ secrets.HK_USER }}
+#          password: ${{ secrets.HK_PW }}
+#       - name: Syncfiles
+#         uses: SamKirkland/FTP-Deploy-Action@4.2.0
+#         with:
+#           server: ${{ secrets.FTP_HOST }}
+#           username: ${{ secrets.FTP_NAME }}
+#           password: ${{ secrets.FTP_PW }}
+#           local-dir: /home/runner/work/carazyming-case/carazyming-case/
+#           exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
 #       - name: Copy folder content recursively to remote
 #         uses: garygrossgarten/github-action-scp@release
 #         with:
