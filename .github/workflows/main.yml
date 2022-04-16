@@ -36,7 +36,7 @@ jobs:
       - name: test scp
         uses: garygrossgarten/github-action-ssh@release
         with: 
-         command: scp -r /home/runner/work/carazyming-case/carazyming-case www/wwwtet/case.crazyming.com
+         command: scp -r /home/runner/work/carazyming-case/carazyming-case:www/wwwtet/case.crazyming.com
          host: ${{ secrets.HK_HOST }}
          username: ${{ secrets.HK_USER }}
          password: ${{ secrets.HK_PW }}
@@ -45,7 +45,7 @@ jobs:
         uses: garygrossgarten/github-action-scp@release
         with:
           local: /home/runner/work/carazyming-case/carazyming-case
-          remote: www/wwwtet/case.crazyming.com
+          remote: www/wwwroot/case.crazyming.com
           host: ${{ secrets.HK_HOST }}
           username: ${{ secrets.HK_USER }}
           password: ${{ secrets.HK_PW }}
