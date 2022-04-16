@@ -39,7 +39,7 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_NAME }}
           password: ${{ secrets.FTP_PW }}
-          local-dir: /home/runner/work/carazyming-case/carazyming-case
+          local-dir: /home/runner/work/carazyming-case/carazyming-case/
           exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
 #       - name: Copy folder content recursively to remote
 #         uses: garygrossgarten/github-action-scp@release
