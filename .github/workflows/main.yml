@@ -33,19 +33,19 @@ jobs:
          host: ${{ secrets.HK_HOST }}
          username: ${{ secrets.HK_USER }}
          password: ${{ secrets.HK_PW }}
-      - name: test scp
-        uses: garygrossgarten/github-action-ssh@release
-        with: 
-         command: scp -r /home/runner/work/carazyming-case/carazyming-case:www/wwwtet/case.crazyming.com
-         host: ${{ secrets.HK_HOST }}
-         username: ${{ secrets.HK_USER }}
-         password: ${{ secrets.HK_PW }}
-         
-      - name: Copy folder content recursively to remote
-        uses: garygrossgarten/github-action-scp@release
+      - name: Syncfiles
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
-          local: /home/runner/work/carazyming-case/carazyming-case
-          remote: www/wwwroot/case.crazyming.com
-          host: ${{ secrets.HK_HOST }}
-          username: ${{ secrets.HK_USER }}
-          password: ${{ secrets.HK_PW }}
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_NAME }}
+          password: ${{ secrets.FTP_PW }}
+          local-dir: dist/
+          exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
+#       - name: Copy folder content recursively to remote
+#         uses: garygrossgarten/github-action-scp@release
+#         with:
+#           local: /home/runner/work/carazyming-case/carazyming-case
+#           remote: www/wwwroot/case.crazyming.com
+#           host: ${{ secrets.HK_HOST }}
+#           username: ${{ secrets.HK_USER }}
+#           password: ${{ secrets.HK_PW }}
