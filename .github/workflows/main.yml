@@ -30,7 +30,7 @@ jobs:
       - name: Copy folder content recursively to remote11
         uses: garygrossgarten/github-action-scp@release
         with:
-          local: /web
+          local: /home/runner/work/carazyming-case/
           remote: scp/test
           host: ${{ secrets.HK_HOST }}
           username: ${{ secrets.HK_USER }}
