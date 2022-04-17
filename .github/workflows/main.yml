@@ -27,23 +27,23 @@ jobs:
         uses: actions/checkout@v2
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: ls -a
-      - name: Copy folder content recursively to remote11
-        uses: garygrossgarten/github-action-scp@release
+#       - name: pkeyyyyyyyyyyyyyyyy
+#         uses: garygrossgarten/github-action-ssh@release
+#         with:
+#            command: ls -a
+#            host: ${{ secrets.HK_HOST }}
+#            username: ${{ secrets.HK_USER }}
+#            passphrase: ${{ secrets.PKEY_PW }}
+#            privateKey: ${{ secrets.PKEY}}
+      - name: Syncfiles
+        uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
-          local: /home/runner/work/carazyming-case/
-          remote: scp/test
-          host: ${{ secrets.HK_HOST }}
-          username: ${{ secrets.HK_USER }}
-          privateKey: ${{ secrets.PKEY }}
-          passphrase: ${{ secrets.PKEY_PW }}
-      - name: pkeyyyyyyyyyyyyyyyy
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-           command: ls -a
-           host: ${{ secrets.HK_HOST }}
-           username: ${{ secrets.HK_USER }}
-           passphrase: ${{ secrets.PKEY_PW }}
-           privateKey: ${{ secrets.PKEY}}
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_NAME }}
+          password: ${{ secrets.FTP_PW }}
+#           local-dir: /home/runner/work/carazyming-case/carazyming-case/
+          local-dir: /
+          exclude: "[**/.git*/**, **/node_ **/build/modules/**,, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
 
 #       - name: ls -a via ssh
 #         uses: garygrossgarten/github-action-ssh@release
