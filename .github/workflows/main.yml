@@ -49,12 +49,13 @@ jobs:
 #           password: ${{ secrets.FTP_PW }}
 #           local-dir: /home/runner/work/carazyming-case/carazyming-case/
 #           exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
-#       - name: Copy folder content recursively to remote
-#         uses: garygrossgarten/github-action-scp@release
-#         with:
-#           local: /home/runner/work/carazyming-case/carazyming-case
-#           remote: www/wwwroot/case.crazyming.com
-#           host: ${{ secrets.HK_HOST }}
-#           username: ${{ secrets.HK_USER }}
-#           password: ${{ secrets.HK_PW }}
+      - name: Copy folder content recursively to remote
+        uses: garygrossgarten/github-action-scp@release
+        with:
+          local: /home/runner/work/carazyming-case/carazyming-case
+          remote: www/wwwroot/case.crazyming.com
+          host: ${{ secrets.HK_HOST }}
+          username: ${{ secrets.HK_USER }}
+          privateKey: ${{ secrets.HK_PW }}
+          passphrase: ${{ secrets.PKEY_PW }}
 
