@@ -22,6 +22,8 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - run: echo "🎉🎉🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: ls -a
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Get latest code
         uses: actions/checkout@v2
@@ -35,8 +37,6 @@ jobs:
           local-dir: ./
           protocol: ftps
           exclude: "[**/.git*/**, **/node_ **/build/modules/**,, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: ls -a
 #       - name: pkeyyyyyyyyyyyyyyyy
 #         uses: garygrossgarten/github-action-ssh@release
 #         with:
