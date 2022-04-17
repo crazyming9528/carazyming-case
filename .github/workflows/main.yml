@@ -56,6 +56,6 @@ jobs:
           remote: www/wwwroot/case.crazyming.com
           host: ${{ secrets.HK_HOST }}
           username: ${{ secrets.HK_USER }}
-          privateKey: ${{ secrets.HK_PW }}
+          privateKey: ${{ secrets.PKEY }}
           passphrase: ${{ secrets.PKEY_PW }}
 
