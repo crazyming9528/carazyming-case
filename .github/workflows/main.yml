@@ -33,6 +33,7 @@ jobs:
           password: ${{ secrets.FTP_PW }}
 #           local-dir: /home/runner/work/carazyming-case/carazyming-case/
           local-dir: ./
+          protocol: ftps
           exclude: "[**/.git*/**, **/node_ **/build/modules/**,, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: ls -a
