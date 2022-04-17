@@ -28,7 +28,7 @@ jobs:
       - name: pkeyyyyyyyyyyyyyyyy
         uses: garygrossgarten/github-action-ssh@release
         with:
-           command: pkeyyyyyyyyyyyyyyyy
+           command: ls -a
            host: ${{ secrets.HK_HOST }}
            username: ${{ secrets.HK_USER }}
            passphrase: ${{ secrets.PKEY_PW }}
