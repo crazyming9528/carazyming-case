@@ -25,6 +25,15 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Get latest code
         uses: actions/checkout@v2
+      - name: Syncfiles
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_NAME }}
+          password: ${{ secrets.FTP_PW }}
+#           local-dir: /home/runner/work/carazyming-case/carazyming-case/
+          local-dir: ./
+          exclude: "[**/.git*/**, **/node_ **/build/modules/**,, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: ls -a
 #       - name: pkeyyyyyyyyyyyyyyyy
@@ -35,16 +44,6 @@ jobs:
 #            username: ${{ secrets.HK_USER }}
 #            passphrase: ${{ secrets.PKEY_PW }}
 #            privateKey: ${{ secrets.PKEY}}
-      - name: Syncfiles
-        uses: SamKirkland/FTP-Deploy-Action@4.2.0
-        with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_NAME }}
-          password: ${{ secrets.FTP_PW }}
-#           local-dir: /home/runner/work/carazyming-case/carazyming-case/
-          local-dir: /
-          exclude: "[**/.git*/**, **/node_ **/build/modules/**,, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
-
 #       - name: ls -a via ssh
 #         uses: garygrossgarten/github-action-ssh@release
 #         with:
