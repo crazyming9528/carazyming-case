@@ -25,10 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Get latest code
         uses: actions/checkout@v2
-      - name: ls -a via ssh
+      - name: pkeyyyyyyyyyyyyyyyy
         uses: garygrossgarten/github-action-ssh@release
         with:
-           command: ls -a
+           command: pkeyyyyyyyyyyyyyyyy
            host: ${{ secrets.HK_HOST }}
            username: ${{ secrets.HK_USER }}
            passphrase: ${{ secrets.PKEY_PW }}
