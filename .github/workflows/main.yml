@@ -25,6 +25,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Get latest code
         uses: actions/checkout@v2
+      - name: ls -a via ssh
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+           command: ls -a
+           host: ${{ secrets.HK_HOST }}
+           username: ${{ secrets.HK_USER }}
+           passphrase: ${{ secrets.PKEY_PW }}
+           privateKey: ${{ secrets.PKEY}}
 
 #       - name: ls -a via ssh
 #         uses: garygrossgarten/github-action-ssh@release
@@ -41,11 +49,12 @@ jobs:
 #           password: ${{ secrets.FTP_PW }}
 #           local-dir: /home/runner/work/carazyming-case/carazyming-case/
 #           exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
-      - name: Copy folder content recursively to remote
-        uses: garygrossgarten/github-action-scp@release
-        with:
-          local: /home/runner/work/carazyming-case/carazyming-case
-          remote: www/wwwroot/case.crazyming.com
-          host: ${{ secrets.HK_HOST }}
-          username: ${{ secrets.HK_USER }}
-          password: ${{ secrets.HK_PW }}
+#       - name: Copy folder content recursively to remote
+#         uses: garygrossgarten/github-action-scp@release
+#         with:
+#           local: /home/runner/work/carazyming-case/carazyming-case
+#           remote: www/wwwroot/case.crazyming.com
+#           host: ${{ secrets.HK_HOST }}
+#           username: ${{ secrets.HK_USER }}
+#           password: ${{ secrets.HK_PW }}
+
