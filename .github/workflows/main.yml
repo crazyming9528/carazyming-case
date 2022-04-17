@@ -25,6 +25,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Get latest code
         uses: actions/checkout@v2
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: ls -a
       - name: Copy folder content recursively to remote11
         uses: garygrossgarten/github-action-scp@release
         with:
