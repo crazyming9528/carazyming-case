@@ -22,14 +22,51 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
+      - run: echo "🎉🎉🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: ls -a
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Get latest code
         uses: actions/checkout@v2
-
-      - name: Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+      - name: Syncfiles
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_NAME }}
           password: ${{ secrets.FTP_PW }}
-          exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
+#           local-dir: /home/runner/work/carazyming-case/carazyming-case/
+          local-dir: ./
+          protocol: ftps
+          exclude: "[**/.git*/**, **/node_ **/build/modules/**,, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
+#       - name: pkeyyyyyyyyyyyyyyyy
+#         uses: garygrossgarten/github-action-ssh@release
+#         with:
+#            command: ls -a
+#            host: ${{ secrets.HK_HOST }}
+#            username: ${{ secrets.HK_USER }}
+#            passphrase: ${{ secrets.PKEY_PW }}
+#            privateKey: ${{ secrets.PKEY}}
+#       - name: ls -a via ssh
+#         uses: garygrossgarten/github-action-ssh@release
+#         with:
+#          command: ls -a
+#          host: ${{ secrets.HK_HOST }}
+#          username: ${{ secrets.HK_USER }}
+#          password: ${{ secrets.HK_PW }}
+#       - name: Syncfiles
+#         uses: SamKirkland/FTP-Deploy-Action@4.2.0
+#         with:
+#           server: ${{ secrets.FTP_HOST }}
+#           username: ${{ secrets.FTP_NAME }}
+#           password: ${{ secrets.FTP_PW }}
+#           local-dir: /home/runner/work/carazyming-case/carazyming-case/
+#           exclude: "[**/.git*/**, **/node_modules/**, **/build/, .babelrc, .editorconfig, .eslintrc, .prettierrc, .stylelintrc, README.md"
+#       - name: Copy folder content recursively to remote11
+#         uses: garygrossgarten/github-action-scp@release
+#         with:
+#           local: /home/runner/work/carazyming-case/carazyming-case
+#           remote: www/wwwroot/case.crazyming.com
+#           host: ${{ secrets.HK_HOST }}
+#           username: ${{ secrets.HK_USER }}
+#           privateKey: ${{ secrets.PKEY }}
+#           passphrase: ${{ secrets.PKEY_PW }}
+
