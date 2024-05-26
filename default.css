@@ -1,8 +1,6 @@
-/* DaTouWang URL: www.datouwang.com */
-
 * {
 
-  font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', cursive;
 
 }
 
@@ -10,7 +8,7 @@
 
 html {
 
-  height: 100%;
+    height: 100%;
 
 }
 
@@ -20,22 +18,22 @@ html {
 
 body {
 
-  background: white; 
-  display: flex;
+    background: white;
+    display: flex;
 
-  flex-direction: column;
+    flex-direction: column;
 
-  align-items: center;
+    align-items: center;
 
-  justify-content: center;
+    justify-content: center;
 
-  margin: 0;
+    margin: 0;
 
-  background-repeat: no-repeat;
+    background-repeat: no-repeat;
 
-  background-attachment: fixed;
+    background-attachment: fixed;
 
-  
+
 
 }
 
@@ -43,17 +41,17 @@ body {
 
 .title{
 
-  position: absolute;
+    position: absolute;
 
-  text-shadow: 0 0 4px #000;
+    text-shadow: 0 0 4px #000;
 
-  text-align: center;
+    text-align: center;
 
-  color: #fff;
+    color: #fff;
 
-  top: 6%;
+    top: 6%;
 
-  
+
 
 }
 
@@ -77,9 +75,9 @@ body {
 
 .developer {
 
-  position: relative;
+    position: relative;
 
-  top: 260px;
+    top: 260px;
 
 }
 
@@ -87,15 +85,15 @@ body {
 
 .fab {
 
-  position: absolute;
+    position: absolute;
 
-  top: -8px;
+    top: -8px;
 
-  left: 50%;
+    left: 50%;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
-  z-index: 1;
+    z-index: 1;
 
 }
 
@@ -103,15 +101,15 @@ body {
 
 .desk {
 
-  position: relative;
+    position: relative;
 
-  height: 140px;
+    height: 140px;
 
-  width: 400px;
+    width: 400px;
 
-  background-color: #6a4227;
+    background-color: #6a4227;
 
-  top: 50px;
+    top: 50px;
 
 }
 
@@ -119,17 +117,17 @@ body {
 
 .deskcounter {
 
-  position: absolute;
+    position: absolute;
 
-  height: 12px;
+    height: 12px;
 
-  width: 460px;
+    width: 460px;
 
-  background-color: #2b0808;
+    background-color: #2b0808;
 
-  top: 40px;
+    top: 40px;
 
-  left: -30px;
+    left: -30px;
 
 }
 
@@ -137,11 +135,11 @@ body {
 
 .worker {
 
-  position: relative;
+    position: relative;
 
-  top: -288px;
+    top: -288px;
 
-  left: -20px;
+    left: -20px;
 
 }
 
@@ -149,19 +147,19 @@ body {
 
 .book1 {
 
-  position: absolute;
+    position: absolute;
 
-  height: 12px;
+    height: 12px;
 
-  width: 80px;
+    width: 80px;
 
-  background-color: #ffc313;
+    background-color: #ffc313;
 
-  top: 30px;
+    top: 30px;
 
-  left: 308px;
+    left: 308px;
 
-  border-radius: 12%;
+    border-radius: 12%;
 
 }
 
@@ -169,23 +167,23 @@ body {
 
 .book1-ring {
 
-  position: absolute;
+    position: absolute;
 
-  width: 7px;
+    width: 7px;
 
-  height: 7px;
+    height: 7px;
 
-  background: grey;
+    background: grey;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  top: 34px;
+    top: 34px;
 
-  left: 316px;
+    left: 316px;
 
-  z-index: 1;
+    z-index: 1;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
 }
 
@@ -193,19 +191,19 @@ body {
 
 .book1-line1 {
 
-  position: absolute;
+    position: absolute;
 
-  height: 1.4px;
+    height: 1.4px;
 
-  width: 50px;
+    width: 50px;
 
-  background-color: grey;
+    background-color: grey;
 
-  top: 38px;
+    top: 38px;
 
-  left: 332px;
+    left: 332px;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
 }
 
@@ -213,19 +211,19 @@ body {
 
 .book1-line2 {
 
-  position: absolute;
+    position: absolute;
 
-  height: 1.4px;
+    height: 1.4px;
 
-  width: 50px;
+    width: 50px;
 
-  background-color: grey;
+    background-color: grey;
 
-  top: 35px;
+    top: 35px;
 
-  left: 332px;
+    left: 332px;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
 }
 
@@ -233,19 +231,19 @@ body {
 
 .book2 {
 
-  position: absolute;
+    position: absolute;
 
-  height: 12px;
+    height: 12px;
 
-  width: 80px;
+    width: 80px;
 
-  background-color: #f092de;
+    background-color: #f092de;
 
-  top: 20px;
+    top: 20px;
 
-  left: 308px;
+    left: 308px;
 
-  border-radius: 12%;
+    border-radius: 12%;
 
 }
 
@@ -253,23 +251,23 @@ body {
 
 .book2-ring {
 
-  position: absolute;
+    position: absolute;
 
-  width: 7px;
+    width: 7px;
 
-  height: 7px;
+    height: 7px;
 
-  background: grey;
+    background: grey;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  top: 24px;
+    top: 24px;
 
-  left: 316px;
+    left: 316px;
 
-  z-index: 1;
+    z-index: 1;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
 }
 
@@ -277,19 +275,19 @@ body {
 
 .book2-line1 {
 
-  position: absolute;
+    position: absolute;
 
-  height: 1.4px;
+    height: 1.4px;
 
-  width: 50px;
+    width: 50px;
 
-  background-color: grey;
+    background-color: grey;
 
-  top: 25px;
+    top: 25px;
 
-  left: 332px;
+    left: 332px;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
 }
 
@@ -297,19 +295,19 @@ body {
 
 .book2-line2 {
 
-  position: absolute;
+    position: absolute;
 
-  height: 1.4px;
+    height: 1.4px;
 
-  width: 50px;
+    width: 50px;
 
-  background-color: grey;
+    background-color: grey;
 
-  top: 28px;
+    top: 28px;
 
-  left: 332px;
+    left: 332px;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
 }
 
@@ -317,19 +315,19 @@ body {
 
 .book3 {
 
-  position: absolute;
+    position: absolute;
 
-  height: 12px;
+    height: 12px;
 
-  width: 80px;
+    width: 80px;
 
-  background-color: #121520;
+    background-color: #121520;
 
-  top: 10px;
+    top: 10px;
 
-  left: 308px;
+    left: 308px;
 
-  border-radius: 12%;
+    border-radius: 12%;
 
 }
 
@@ -337,23 +335,23 @@ body {
 
 .book3-ring {
 
-  position: absolute;
+    position: absolute;
 
-  width: 7px;
+    width: 7px;
 
-  height: 7px;
+    height: 7px;
 
-  background: grey;
+    background: grey;
 
-  border-radius: 50%;
+    border-radius: 50%;
 
-  top: 13px;
+    top: 13px;
 
-  left: 316px;
+    left: 316px;
 
-  z-index: 1;
+    z-index: 1;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
 }
 
@@ -361,19 +359,19 @@ body {
 
 .book3-line1 {
 
-  position: absolute;
+    position: absolute;
 
-  height: 1.4px;
+    height: 1.4px;
 
-  width: 50px;
+    width: 50px;
 
-  background-color: grey;
+    background-color: grey;
 
-  top: 13px;
+    top: 13px;
 
-  left: 332px;
+    left: 332px;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
 }
 
@@ -381,19 +379,19 @@ body {
 
 .book3-line2 {
 
-  position: absolute;
+    position: absolute;
 
-  height: 1.4px;
+    height: 1.4px;
 
-  width: 50px;
+    width: 50px;
 
-  background-color: grey;
+    background-color: grey;
 
-  top: 17px;
+    top: 17px;
 
-  left: 332px;
+    left: 332px;
 
-  opacity: 0.6;
+    opacity: 0.6;
 
 }
 
@@ -401,26 +399,26 @@ body {
 
 
 
-/* ’‚¿Ôø™ ºœ¬√Ê∂º «¥˙¬Î∆Æ¬‰—˘ Ω */
+/* ËøôÈáåÂºÄÂßã‰∏ãÈù¢ÈÉΩÊòØ‰ª£Á†ÅÈ£òËêΩÊ†∑Âºè */
 
 .snowflakes, .snowflake {
 
-  position: absolute;
+    position: absolute;
 
-  color: #2f112a;
+    color: #2f112a;
 
-  font-size: 0.86em;
+    font-size: 0.86em;
 
-  font-family: Arial, sans-serif;
+    font-family: Arial, sans-serif;
 
-  text-shadow: 0 0 4px #fff;
+    text-shadow: 0 0 4px #fff;
 
-  font-family: 'Pacifico', cursive;
+    font-family: 'Pacifico', cursive;
 
-  z-index: -999;
+    z-index: -999;
 
 }
 
 
 
- @-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}.snowflake:nth-of-type(10){left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s}.snowflake:nth-of-type(11){left:65%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s}
+@-webkit-keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@-webkit-keyframes snowflakes-shake{0%,100%{-webkit-transform:translateX(0);transform:translateX(0)}50%{-webkit-transform:translateX(80px);transform:translateX(80px)}}@keyframes snowflakes-fall{0%{top:-10%}100%{top:100%}}@keyframes snowflakes-shake{0%,100%{transform:translateX(0)}50%{transform:translateX(80px)}}.snowflake{position:fixed;top:-10%;z-index:9999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;cursor:default;-webkit-animation-name:snowflakes-fall,snowflakes-shake;-webkit-animation-duration:10s,3s;-webkit-animation-timing-function:linear,ease-in-out;-webkit-animation-iteration-count:infinite,infinite;-webkit-animation-play-state:running,running;animation-name:snowflakes-fall,snowflakes-shake;animation-duration:10s,3s;animation-timing-function:linear,ease-in-out;animation-iteration-count:infinite,infinite;animation-play-state:running,running}.snowflake:nth-of-type(0){left:1%;-webkit-animation-delay:0s,0s;animation-delay:0s,0s}.snowflake:nth-of-type(1){left:10%;-webkit-animation-delay:1s,1s;animation-delay:1s,1s}.snowflake:nth-of-type(2){left:20%;-webkit-animation-delay:6s,.5s;animation-delay:6s,.5s}.snowflake:nth-of-type(3){left:30%;-webkit-animation-delay:4s,2s;animation-delay:4s,2s}.snowflake:nth-of-type(4){left:40%;-webkit-animation-delay:2s,2s;animation-delay:2s,2s}.snowflake:nth-of-type(5){left:50%;-webkit-animation-delay:8s,3s;animation-delay:8s,3s}.snowflake:nth-of-type(6){left:60%;-webkit-animation-delay:6s,2s;animation-delay:6s,2s}.snowflake:nth-of-type(7){left:70%;-webkit-animation-delay:2.5s,1s;animation-delay:2.5s,1s}.snowflake:nth-of-type(8){left:80%;-webkit-animation-delay:1s,0s;animation-delay:1s,0s}.snowflake:nth-of-type(9){left:90%;-webkit-animation-delay:3s,1.5s;animation-delay:3s,1.5s}.snowflake:nth-of-type(10){left:25%;-webkit-animation-delay:2s,0s;animation-delay:2s,0s}.snowflake:nth-of-type(11){left:65%;-webkit-animation-delay:4s,2.5s;animation-delay:4s,2.5s}
